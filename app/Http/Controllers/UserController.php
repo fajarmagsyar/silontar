@@ -12,12 +12,6 @@ class UserController extends Controller
         return view('index');
     }
 
-    public function tentang()
-    {
-        (User::get());
-        return User::get();
-    }
-
     public function login()
     {
         return view('login');

@@ -21,7 +21,7 @@ class AuthController extends Controller
             $user = User::where('email', $req->input(('email')))->first();
             $req->session()->regenerate();
             if ($user->role == 'admin') {
-                return redirect('/admin/dashboard');
+                return redirect('/admin/beranda');
             }
             return redirect('/beranda');
         }

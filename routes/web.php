@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,7 @@ Route::get('/registrasi', [AuthController::class, 'daftar']);
 Route::post('/registrasi', [AuthController::class, 'daftarStore']);
 Route::get('/beranda', [UserController::class, 'index']);
 Route::post('/auth', [AuthController::class, 'login']);
+
+
+Route::get('/admin/beranda', [AdminController::class, 'beranda']);
+Route::get('/admin/user', [AdminController::class, 'user']);
