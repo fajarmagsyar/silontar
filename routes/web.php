@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [UserController::class, 'index']);
+Route::get('/login', [UserController::class, 'login']);
 Route::get('/tentang', [UserController::class, 'tentang']);
+Route::post('/auth', [AuthController::class, 'login']);
