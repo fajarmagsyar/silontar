@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UserController::class, 'index']);
-Route::get('/login', [UserController::class, 'login']);
-Route::get('/tentang', [UserController::class, 'tentang']);
+Route::get('/', [UserController::class, 'login']);
+Route::get('/registrasi', [AuthController::class, 'daftar']);
+Route::post('/registrasi', [AuthController::class, 'daftarStore']);
+Route::get('/beranda', [UserController::class, 'index']);
 Route::post('/auth', [AuthController::class, 'login']);

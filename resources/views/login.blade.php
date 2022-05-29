@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>PAINTER - Painting Company Website Template</title>
+    <title>SiLONTAR - Login</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="/assets/img/Logo.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -63,7 +63,7 @@
                                     <label for=""><a href="" style="color:rgb(43, 95, 185)">Lupa password?</a></label>
                                 </div>
                                 <div class="col-6">
-                                    <a href="" class="btn btn-dark w-100">Daftar</a>
+                                    <a href="/registrasi" class="btn btn-dark w-100">Daftar</a>
                                 </div>
                             </div>
                         </form>
@@ -82,8 +82,9 @@
                 <div class="container">
                     <div class="row g-0">
                         <div class="col-md-6 text-center text-md-start">
-                            <p class="mb-md-0">Copyright &copy; <a class="fw-bold" href="#">SiLONTAR</a>.
-                                All Rights Reserved.</p>
+                            <p class="mb-md-0">Copyright &copy; <a class="fw-bold" href="#">SiLONTAR
+                                    {{ date('Y') }}</a>.
+                                Made by ESC<sup>17</sup>.</p>
                         </div>
                     </div>
                 </div>

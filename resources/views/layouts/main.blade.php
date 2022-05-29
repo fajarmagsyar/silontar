@@ -14,7 +14,9 @@
     <link href="/assets/img/logo1.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
@@ -48,6 +50,7 @@
                     <li><a class="nav-link scrollto" href="#services">PANDUAN UMUM</a></li>
                     <li><a class="nav-link scrollto" href="#">TENTANG</a></li>
                     <li><a class="nav-link scrollto" href="#">KONTAK</a></li>
+                    <li><a class="nav-link scrollto" href="#">{{ strtoupper(auth()->user()->email) }}</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -95,7 +98,9 @@
                         <h4>Alamat</h4>
                         <p>Tanah Merah, Kec. Kupang Tengah, Kabupaten Kupang, Nusa Tenggara Tim.</p>
 
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.845100346634!2d123.72670511438471!3d-10.111762511673845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c5681962dcf8cb7%3A0xe35b0e878df8a43d!2sBalai%20Pelaksanaan%20Jalan%20Nasional%20NTT!5e0!3m2!1sid!2sid!4v1650532982237!5m2!1sid!2sid" width="100%" height="270" style="border:0;"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.845100346634!2d123.72670511438471!3d-10.111762511673845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c5681962dcf8cb7%3A0xe35b0e878df8a43d!2sBalai%20Pelaksanaan%20Jalan%20Nasional%20NTT!5e0!3m2!1sid!2sid!4v1650532982237!5m2!1sid!2sid"
+                            width="100%" height="270" style="border:0;"></iframe>
 
                     </div>
 
@@ -114,7 +119,8 @@
     </footer><!-- End Footer -->
 
     <div id="preloader"></div>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
     <script src="/assets/vendor/purecounter/purecounter.js"></script>
