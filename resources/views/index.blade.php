@@ -150,8 +150,22 @@
     </section><!-- End Services Section -->
 
 
+    <section id="tentang" class="tentang">
+        <div class="container" data-aos="fade-up">
+
+
+            <div class="section-title">
+                <h2>TENTANG KAMI</h2>
+            </div>
+            <p>
+                BALAI JALAN X NUSA TENGGARA TIMUR merupakan kantor.......
+            </p>
+
+        </div>
+    </section><!-- End About Section -->
+
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="kontak" class="kontak">
         <div class="container" data-aos="fade-up">
 
 
@@ -159,26 +173,28 @@
                 <h2>HUBUNGI KAMI</h2>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
-                        <div class="icon"><i class="bi bi-laptop-fill"></i></div>
                         <h4><a href="">MEDIAN SOSIAL</a></h4>
-                        <P>
-                            BABFKBASBK
-                        </P>
+                        <p>
+                            <i class="bi bi-envelope-fill"> balaijalanxntt@gmail.com</i><br>
+                            <i class="bi bi-facebook"> balaijalanxntt</i><br>
+                            <i class="bi bi-whatsapp"> +62</i><br>
+                            <i class="bi bi-twitter"> balaijalanxntt</i>
+                        </p>
                     </div>
+
+
                 </div>
 
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="col-lg-6 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
                     <div class="icon-box">
-                        <div class="icon"><i class="bi bi-box-arrow-in-right"></i></div>
                         <h4><a href="">TELEPON</a></h4>
-                        <p>+62</p>
+                        <i class="bi bi-telephone-fill"> (022-0001)</i>
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
     </section><!-- End About Section -->
 
 
