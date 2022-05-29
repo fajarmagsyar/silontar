@@ -13,7 +13,7 @@ class UserController extends Controller
     }
     public function tentang()
     {
-        dd(User::get());
+        (User::get());
         return User::get();
     }
 }
