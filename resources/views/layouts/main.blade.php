@@ -48,6 +48,7 @@
                     <li><a class="nav-link scrollto" href="#services">PANDUAN UMUM</a></li>
                     <li><a class="nav-link scrollto" href="#tentang">TENTANG</a></li>
                     <li><a class="nav-link scrollto" href="#kontak">KONTAK</a></li>
+                    <li><a class="nav-link scrollto" href="#">{{ strtoupper(auth()->user()->email) }}</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
