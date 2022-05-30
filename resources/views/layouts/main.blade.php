@@ -46,6 +46,7 @@
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">BERANDA</a></li>
                     <li><a class="nav-link scrollto" href="#services">PANDUAN UMUM</a></li>
+                    <li><a class="nav-link scrollto" href="/pengajuan">PENGAJUAN</a></li>
                     <li><a class="nav-link scrollto" href="#tentang">TENTANG</a></li>
                     <li><a class="nav-link scrollto" href="#kontak">KONTAK</a></li>
                     <li><a class="nav-link scrollto" href="#">{{ strtoupper(auth()->user()->email) }}</a></li>
@@ -54,7 +55,24 @@
             </nav>
         </div>
     </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+                <div class="col-xl-12 col-lg-8">
+                    <h1>SISTEM INFORMASI LAYANAN ONLINE TRANSPARANSI DAN AKUNTABILITAS</h1>
+                    <h2>BALAI BESAR PELAKSANAAN JALAN NASIONAL NUSA TENGGATA TIMUR</h2>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+
     @yield('konten')
+
+
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="footer-top">
@@ -65,7 +83,7 @@
                         <div class="footer-info">
                             <h3>SILONTAR<span>.</span></h3>
                             <p>
-                                BALAI JALAN X NUSA TENGGARA TIMUR<br>
+                                BALAI JALAN NUSA TENGGARA TIMUR<br>
                                 <br><br>
                             </p>
                         </div>
@@ -76,8 +94,8 @@
                         <h4>Link</h4>
                         <ul>
                             <li><i class="bx bx-chevron-right"></i> <a href="#hero">BERANDA</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">PANDUAN UMUM</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">TENTANG</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#service">PANDUAN UMUM</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#tentang">TENTANG</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#kontak">KONTAK</a></li>
                         </ul>
                     </div>
@@ -96,7 +114,7 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>SILONTAR</span></strong>. BALAI JALAN X NUSA TENGGARA TIMUR
+                &copy; Copyright <strong><span>SILONTAR</span></strong>. BALAI JALAN NUSA TENGGARA TIMUR
             </div>
             <div class="credits">
                 Designed by: ESC17

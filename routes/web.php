@@ -20,6 +20,7 @@ Route::get('/', [UserController::class, 'login']);
 Route::get('/registrasi', [AuthController::class, 'daftar']);
 Route::post('/registrasi', [AuthController::class, 'daftarStore']);
 Route::get('/beranda', [UserController::class, 'index']);
+Route::get('/pengajuan', [UserController::class, 'pengajuan']);
 Route::post('/auth', [AuthController::class, 'login']);
 
 

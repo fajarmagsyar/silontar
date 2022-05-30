@@ -16,4 +16,9 @@ class UserController extends Controller
     {
         return view('login');
     }
+
+    public function pengajuan()
+    {
+        return view('pengajuan');
+    }
 }

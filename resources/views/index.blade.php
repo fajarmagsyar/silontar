@@ -2,50 +2,6 @@
 @section('konten')
 
 
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center justify-content-center">
-    <div class="container" data-aos="fade-up">
-
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-            <div class="col-xl-12 col-lg-8">
-                <h1>SISTEM INFORMASI </h1>
-                <h2>BALAI BESAR PELAKSANAAN JALAN NASIONAL X - NUSA TENGGATA TIMUR</h2>
-            </div>
-        </div>
-
-        <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-            <div class="col-xl-3 col-md-4">
-                <div class="icon-box">
-                    <i class="ri-store-line"></i>
-                    <h3><a href="">SILONTAR</a></h3>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-4">
-                <div class="icon-box">
-                    <i class="bi bi-activity"></i>
-                    <h3><a href="">SILONTAR</a></h3>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-4">
-                <div class="icon-box">
-                    <i class="ri-calendar-todo-line"></i>
-                    <h3><a href="">SILONTAR</a></h3>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-4">
-                <div class="icon-box">
-                    <i class="bi bi-tools"></i>
-                    <h3><a href="">SILONTAR</a></h3>
-                </div>
-            </div>
-
-        </div>
-
-        <marquee behavior="alternate">
-            <h2>JAM OPERASIONAL LAYANAN ADALAH 08:00:00 - 17:00:00</h2>
-        </marquee>
-    </div>
-</section><!-- End Hero -->
 
 <main id="main">
 
@@ -60,16 +16,12 @@
 
             <p align="justify" data-aos="zoom-in" data-aos-delay="100">
 
-                Sistem Informasi Pemanfaatan Jalan adalah sistem terpadu yang berguna untuk
+                Sistem informasi layanan online transparansi dan akuntabilitas Merupakan sistem yang melayani perizinan,
+                pemanfaatan bagian-bagian jalan nasional Nusa Tenggara Timur.
+                Sistem Informasi ini berguna untuk
                 memudahkan masyarakat baik sebagai perorangan, organisasi, badan usaha atau instansi pemerintah
                 untuk mengajukan permohonan pemanfaatan ruang milik jalan yang dikelola oleh Balai Besar Pelaksanaan
-                Jalan Nasional X Nusa Tenggara Timur. </br>
-                Keunggulan dari SILONTAR (Sistem Informasi Pemanfaatan Jalan) Balai X Nusa Tenggara Timur adalah
-                pemohon dapat melakukan pengecekan terhadap status permohonannya kapan saja dengan menggunakan nomor
-                pengajuan yang didapat saat melakukan pengajuan. Bahkan setiap kali staff Balai melakukan pembaruan
-                status pengajuan, sistem secara otomatis akan mengirimkan email notifikasi ke alamat
-                email yang melakukan pengajuan permohonan tersebut.
-
+                Jalan Nasional Nusa Tenggara Timur.
             </p>
 
         </div>
