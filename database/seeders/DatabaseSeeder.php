@@ -16,25 +16,23 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::create([
-            'nik' => '1234567890123001',
             'nama' => 'Ayam User',
             'email' => 'ayam@gmail.com',
             'password' => Hash::make('admin1234'),
-            'jk' => 'Laki-laki',
-            'perusahaan' => 'PT. Tiga Roda',
-            'alamat_perorang' => 'Jln. Bro',
+            'nama_perusahaan' => 'PT. Tiga Roda',
+            'nama_direktur' => 'Pak Jon',
             'alamat_perusahaan' => 'Jln. Sis',
+            'lokasi_permohonan' => 'Jln. Sis',
             'role' => 'user',
         ]);
         User::create([
-            'nik' => '1234567890123002',
             'nama' => 'Kucing Admin',
             'email' => 'kucing@gmail.com',
             'password' => Hash::make('admin1234'),
-            'jk' => 'Perempuan',
-            'perusahaan' => 'PT. Tiga Roda',
-            'alamat_perorang' => 'Jln. Bro',
+            'nama_perusahaan' => 'PT. Tiga Roda',
+            'nama_direktur' => 'Pak Doe',
             'alamat_perusahaan' => 'Jln. Sis',
+            'lokasi_permohonan' => 'Jln. Sis',
             'role' => 'admin',
         ]);
     }

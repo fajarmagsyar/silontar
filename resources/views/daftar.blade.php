@@ -58,38 +58,21 @@
                                     <div class="alert alert-danger">{{ session('error') }}</div>
                                 @endif
                                 <div class="row">
-                                    <div class="col-6">
-                                        <div class="col-12 mb-3 col-sm-12">
-                                            <input required type="number" class="form-control bg-light border-0"
-                                                name="nik" placeholder="NIK" style="height: 55px;">
-                                        </div>
-                                        <div class="col-12 mb-3 col-sm-12">
-                                            <input required type="text" class="form-control bg-light border-0"
-                                                name="nama" placeholder="Nama" style="height: 55px;">
-                                        </div>
-                                        <div class="col-12 mb-3 col-sm-12 text-start">
-                                            <select required name="jk" class="form-select bg-light border-0"
-                                                style="height: 55px;" id="">
-                                                <option value="" selected disabled>Jenis Kelamin</option>
-                                                <option value="Laki-laki">Laki-laki</option>
-                                                <option value="Perempuan">Perempuan</option>
-                                            </select>
-                                        </div>
+                                    <div class="col-12 col-sm-12 text-start">
+                                        <h4>Detail Pendaftar</h4>
                                     </div>
                                     <div class="col-6">
-
                                         <div class="col-12 mb-3 col-sm-12">
                                             <input required type="Email" class="form-control bg-light border-0"
                                                 name="email" placeholder="Email" style="height: 55px;">
                                         </div>
+                                    </div>
+                                    <div class="col-6">
                                         <div class="col-12 mb-3 col-sm-12">
                                             <input required type="password" class="form-control bg-light border-0"
                                                 name="password" placeholder="Password" style="height: 55px;">
                                         </div>
 
-                                        <div class="col-12 col-sm-12">
-                                            <textarea name="alamat" class="form-control bg-light border-0" rows="1" placeholder="Alamat Pendaftar"></textarea>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 text-start">
@@ -100,10 +83,18 @@
                                         name="nama_perusahaan" placeholder="Nama Perusahaan" style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-12">
+                                    <input required type="text" class="form-control bg-light border-0"
+                                        name="nama_direktur" placeholder="Nama Direktur" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-12">
                                     <textarea name="alamat_perusahaan" class="form-control bg-light border-0" placeholder="Alamat Perusahaan"></textarea>
                                 </div>
+                                <div class="col-12 col-sm-12">
+                                    <input required type="text" class="form-control bg-light border-0"
+                                        name="lokasi_permohonan" placeholder="Lokasi Permohonan" style="height: 55px;">
+                                </div>
                                 <div class="col-12 col-sm-12 text-start">
-                                    <input required type="checkbox" name="sdk">
+                                    <input type="checkbox" name="sdk" class="mt-5">
                                     <label for="">Saya setuju dengan seluruh <a href=""
                                             style="color:rgb(64, 126, 208)">syarat dan ketentuan yang
                                             berlaku</a>.</label>

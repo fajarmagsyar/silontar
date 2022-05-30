@@ -18,12 +18,8 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $user = User::where('email', $req->input(('email')))->first();
             $req->session()->regenerate();
-            if ($user->role == 'admin') {
-                return redirect('/admin/beranda');
-            }
-            return redirect('/beranda');
+            return redirect('/');
         }
 
         return back()->with('error', 'Email atau password anda salah!');
@@ -35,17 +31,14 @@ class AuthController extends Controller
     public function daftarStore(Request $request)
     {
         $input = [
-            'nik' => $request->input('nik'),
-            'nama' => $request->input('nama'),
-            'jk' => $request->input('jk'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
-            'alamat' => $request->input('alamat'),
             'nama_perusahaan' => $request->input('nama_perusahaan'),
+            'nama_direktur' => $request->input('nama_direktur'),
             'alamat_perusahaan' => $request->input('alamat_perusahaan'),
+            'lokasi_permohonan' => $request->input('lokasi_permohonan'),
             'role' => 'user'
         ];
-
         if ($request->input('sdk') == null) {
             return redirect('/registrasi')->with('error', 'Centang syarat dan ketentuan sebelum registrasi!');
         }
@@ -59,7 +52,18 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/beranda');
+            return redirect('/');
         }
+    }
+
+    public function logout(Request $req)
+    {
+        Auth::logout();
+
+        $req->session()->invalidate();
+
+        $req->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

@@ -19,4 +19,10 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $guarded = ['user_id'];
+
+
+    public function hasRole($role_name)
+    {
+        return User::where('role', $role_name)->where('user_id', auth()->user()->user_id)->exists();
+    }
 }

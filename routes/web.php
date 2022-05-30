@@ -16,12 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UserController::class, 'login']);
+Route::get('/', [UserController::class, 'index']);
 Route::get('/registrasi', [AuthController::class, 'daftar']);
 Route::post('/registrasi', [AuthController::class, 'daftarStore']);
-Route::get('/beranda', [UserController::class, 'index']);
+Route::get('/login', [UserController::class, 'login']);
 Route::get('/pengajuan', [UserController::class, 'pengajuan']);
+Route::post('/pengajuan/store', [UserController::class, 'pengajuanStore']);
 Route::post('/auth', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
 
 Route::get('/admin/beranda', [AdminController::class, 'beranda']);
