@@ -13,9 +13,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -33,13 +31,13 @@
 <body style="background-color: #FFE468">
 
     @if (session()->has('error'))
-        <script>
-            Swal.fire(
-                'Gagal!',
-                'Anda harus setuju syarat dan ketentuan sebelum registrasi',
-                'error'
-            )
-        </script>
+    <script>
+        Swal.fire(
+            'Gagal!',
+            'Anda harus setuju syarat dan ketentuan sebelum registrasi',
+            'error'
+        )
+    </script>
     @endif
 
     <!-- Quote Start -->
@@ -55,7 +53,7 @@
                             @csrf
                             <div class="row g-3 mt-4">
                                 @if (session()->has('error'))
-                                    <div class="alert alert-danger">{{ session('error') }}</div>
+                                <div class="alert alert-danger">{{ session('error') }}</div>
                                 @endif
                                 <div class="row">
                                     <div class="col-12 col-sm-12 text-start">
@@ -63,14 +61,12 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="col-12 mb-3 col-sm-12">
-                                            <input required type="Email" class="form-control bg-light border-0"
-                                                name="email" placeholder="Email" style="height: 55px;">
+                                            <input required type="Email" class="form-control bg-light border-0" name="email" placeholder="Email" style="height: 55px;">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="col-12 mb-3 col-sm-12">
-                                            <input required type="password" class="form-control bg-light border-0"
-                                                name="password" placeholder="Password" style="height: 55px;">
+                                            <input required type="password" class="form-control bg-light border-0" name="password" placeholder="Password" style="height: 55px;">
                                         </div>
 
                                     </div>
@@ -79,29 +75,24 @@
                                     <h4>Detail Perusahaan</h4>
                                 </div>
                                 <div class="col-12 col-sm-12">
-                                    <input required type="text" class="form-control bg-light border-0"
-                                        name="nama_perusahaan" placeholder="Nama Perusahaan" style="height: 55px;">
+                                    <input required type="text" class="form-control bg-light border-0" name="nama_perusahaan" placeholder="Nama Perusahaan" style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-12">
-                                    <input required type="text" class="form-control bg-light border-0"
-                                        name="nama_direktur" placeholder="Nama Direktur" style="height: 55px;">
+                                    <input required type="text" class="form-control bg-light border-0" name="nama_direktur" placeholder="Nama Direktur" style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-12">
                                     <textarea name="alamat_perusahaan" class="form-control bg-light border-0" placeholder="Alamat Perusahaan"></textarea>
                                 </div>
                                 <div class="col-12 col-sm-12">
-                                    <input required type="text" class="form-control bg-light border-0"
-                                        name="lokasi_permohonan" placeholder="Lokasi Permohonan" style="height: 55px;">
+                                    <input required type="text" class="form-control bg-light border-0" name="lokasi_permohonan" placeholder="Lokasi Permohonan" style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-12 text-start">
                                     <input type="checkbox" name="sdk" class="mt-5">
-                                    <label for="">Saya setuju dengan seluruh <a href=""
-                                            style="color:rgb(64, 126, 208)">syarat dan ketentuan yang
+                                    <label for="">Saya setuju dengan seluruh <a href="" style="color:rgb(64, 126, 208)">syarat dan ketentuan yang
                                             berlaku</a>.</label>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary py-3 px-5 float-end" type="submit">Registrasi <i
-                                            class="bi bi-arrow-right mr-3"></i></button>
+                                    <button class="btn btn-primary py-3 px-5 float-end" type="submit">Registrasi <i class="bi bi-arrow-right mr-3"></i></button>
                                 </div>
                             </div>
 

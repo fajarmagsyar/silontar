@@ -36,22 +36,22 @@
                                 </td>
                                 <td class="align-middle text-sm">
                                     <div class="col text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Jenis Kelamin</p>
+                                        <p class="text-xs font-weight-bold mb-0">Nama Direktur</p>
                                     </div>
                                 </td>
                                 <td class="align-middle text-sm">
                                     <div class="col text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Perusahaan</p>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-sm">
-                                    <div class="col text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Alamat Perorang</p>
+                                        <p class="text-xs font-weight-bold mb-0">Nama Perusahaan</p>
                                     </div>
                                 </td>
                                 <td class="align-middle text-sm">
                                     <div class="col text-center">
                                         <p class="text-xs font-weight-bold mb-0">Alamat Perusahaan</p>
+                                    </div>
+                                </td>
+                                <td class="align-middle text-sm">
+                                    <div class="col text-center">
+                                        <p class="text-xs font-weight-bold mb-0">Lokasi Permohonan</p>
                                     </div>
                                 </td>
                                 <td class="align-middle text-sm">
@@ -84,17 +84,12 @@
                                 </td>
                                 <td class="align-middle text-sm">
                                     <div class="col text-center">
-                                        <h6 class="text-sm mb-0">{{$r->jk}}</h6>
+                                        <h6 class="text-sm mb-0">{{$r->nama_direktur}}</h6>
                                     </div>
                                 </td>
                                 <td class="align-middle text-sm">
                                     <div class="col text-center">
-                                        <h6 class="text-sm mb-0">{{$r->perusahaan}}</h6>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-sm">
-                                    <div class="col text-center">
-                                        <h6 class="text-sm mb-0">{{$r->alamat_perorang}}</h6>
+                                        <h6 class="text-sm mb-0">{{$r->nama_perusahaan}}</h6>
                                     </div>
                                 </td>
                                 <td class="align-middle text-sm">
@@ -104,8 +99,14 @@
                                 </td>
                                 <td class="align-middle text-sm">
                                     <div class="col text-center">
+                                        <h6 class="text-sm mb-0">{{$r->lokasi_permohonan}}</h6>
+                                    </div>
+                                </td>
+                                <td class="align-middle text-sm">
+                                    <div class="col text-center">
                                         <h6 class="text-sm mb-0">
                                             <i class="bi bi-pencil-fill"></i>
+                                            &nbsp;
                                             <i class="bi bi-trash3-fill"></i>
                                         </h6>
                                     </div>

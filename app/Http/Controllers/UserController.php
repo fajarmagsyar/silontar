@@ -65,4 +65,8 @@ class UserController extends Controller
 
         return redirect('/')->with('success', 'Pengajuan berhasil dilakukan');
     }
+    public function profil()
+    {
+        return view('profil');
+    }
 }
