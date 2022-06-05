@@ -23,8 +23,11 @@ Route::get('/login', [UserController::class, 'login']);
 Route::get('/pengajuan', [UserController::class, 'pengajuan']);
 Route::post('/pengajuan/store', [UserController::class, 'pengajuanStore']);
 Route::post('/auth', [AuthController::class, 'login']);
+Route::get('/profil', [AuthController::class, 'profil']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 
 Route::get('/admin/beranda', [AdminController::class, 'beranda']);
 Route::get('/admin/user', [AdminController::class, 'user']);
+Route::get('/admin/pengajuan', [AdminController::class, 'pengajuan']);
+Route::get('/admin/profil', [AdminController::class, 'profil']);
