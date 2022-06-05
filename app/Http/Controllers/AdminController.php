@@ -14,7 +14,7 @@ class AdminController extends Controller
     }
     public function pengajuan()
     {
-        $pengajuan = Permohonan::get();
+        $pengajuan = Permohonan::join('user', 'user.user_id', 'permohonan.user_id')->get();
         // dd($pengajuan);
         return view('admin.pengajuan', [
             'pengajuan' => $pengajuan,
