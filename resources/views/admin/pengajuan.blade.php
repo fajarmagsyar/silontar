@@ -9,7 +9,7 @@
                             <h6 class="mb-2">DATA PENGAJUAN</h6>
                         </div>
                     </div>
-                    <div class="table-responsive">
+                    <div class="table-responsive mx-4">
                         <table class="table align-items-center ">
                             <tbody>
                                 <tr>
@@ -37,7 +37,7 @@
                                     </td>
                                     <td class="align-middle text-sm">
                                         <div class="col text-center">
-                                            <p class="text-xs font-weight-bold mb-0"></p>
+                                            <p class="text-xs font-weight-bold mb-0">Status</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -139,11 +139,21 @@
                                         </td>
                                         <td class="align-middle text-sm">
                                             <div class="col text-center">
-                                                <h6 class="text-sm mb-0">
-                                                    <i class="bi bi-pencil-fill"></i>
-                                                    &nbsp;
-                                                    <i class="bi bi-trash3-fill"></i>
-                                                </h6>
+                                                <a href="/admin/pengajuan/detail/{{ $r->permohonan_id }}"
+                                                    class="btn btn-info"><i class="ni ni-app"></i> <br> Detail
+                                                    Status
+                                                </a>
+                                                <br>
+                                                @if ($r->permohonan == null)
+                                                    <div class="badge bg-primary"><i class="ni ni-watch-time"></i> Belum
+                                                        diproses</div>
+                                                @elseif ($r->permohonan == 'Setuju')
+                                                    <div class="badge bg-success"><i class="ni ni-check-bold"></i> Setuju
+                                                    </div>
+                                                @elseif ($r->permohonan == 'Kembalikan Berkas')
+                                                    <div class="badge bg-danger"><i class="ni ni-fat-remove"></i> Kembalikan
+                                                        Berkas</div>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
