@@ -105,7 +105,7 @@
                                 <td class="align-middle text-sm">
                                     <div class="col text-center">
                                         <h6 class="text-sm mb-0">
-                                            <i class="bi bi-pencil-fill"></i>
+                                            <a href="/admin/edituser"><i class="bi bi-pencil-fill"></i></a>
                                             &nbsp;
                                             <i class="bi bi-trash3-fill"></i>
                                         </h6>

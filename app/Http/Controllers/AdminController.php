@@ -31,4 +31,8 @@ class AdminController extends Controller
     {
         return view('admin.profil');
     }
+    public function edituser()
+    {
+        return view('admin.edituser');
+    }
 }

@@ -31,3 +31,4 @@ Route::get('/admin/beranda', [AdminController::class, 'beranda']);
 Route::get('/admin/user', [AdminController::class, 'user']);
 Route::get('/admin/pengajuan', [AdminController::class, 'pengajuan']);
 Route::get('/admin/profil', [AdminController::class, 'profil']);
+Route::get('/admin/edituser', [AdminController::class, 'edituser']);
