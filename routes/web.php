@@ -21,14 +21,21 @@ Route::get('/registrasi', [AuthController::class, 'daftar']);
 Route::post('/registrasi', [AuthController::class, 'daftarStore']);
 Route::get('/login', [UserController::class, 'login']);
 Route::get('/pengajuan', [UserController::class, 'pengajuan']);
+Route::get('/pengajuan/list', [UserController::class, 'pengajuanList']);
 Route::post('/pengajuan/store', [UserController::class, 'pengajuanStore']);
 Route::post('/auth', [AuthController::class, 'login']);
 Route::get('/profil', [AuthController::class, 'profil']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 
-Route::get('/admin/beranda', [AdminController::class, 'beranda']);
-Route::get('/admin/user', [AdminController::class, 'user']);
-Route::get('/admin/pengajuan', [AdminController::class, 'pengajuan']);
-Route::get('/admin/profil', [AdminController::class, 'profil']);
-Route::get('/admin/edituser', [AdminController::class, 'edituser']);
+Route::prefix('admin')->group(function () {
+    Route::get('/beranda', [AdminController::class, 'beranda']);
+    Route::get('/user', [AdminController::class, 'user']);
+    Route::get('/pengajuan', [AdminController::class, 'pengajuan']);
+    Route::get('/pengajuan/detail/{id}', [AdminController::class, 'pengajuanDetail']);
+    Route::post('/pengajuan/detail/{id}/store', [AdminController::class, 'pengajuanDetailStore']);
+    Route::post('/pengajuan/detail/{id}/tolak', [AdminController::class, 'pengajuanDetailTolak']);
+    Route::post('/pengajuan/detail/{id}/terima', [AdminController::class, 'pengajuanDetailTerima']);
+    Route::post('/pengajuan/detail/{id}/update', [AdminController::class, 'pengajuanDetailUpdate']);
+    Route::get('/profil', [AdminController::class, 'profil']);
+});

@@ -25,6 +25,15 @@ class UserController extends Controller
         ]);
     }
 
+    public function pengajuanList()
+    {
+        return view('pengajuan-list', [
+            'dataUser' => User::find(auth()->user()->user_id),
+            'pengajuan' => Permohonan::join('user', 'user.user_id', '=', 'permohonan.user_id')->where('permohonan.user_id', auth()->user()->user_id)->orderBy('permohonan.created_at', 'desc')->get(),
+        ]);
+    }
+
+
     public function pengajuanStore(Request $request)
     {
         $administrasi = ['surat_permohonan', 'surat_pernyataan', 'ktp', 'npwp', 'kswp', 'nib', 'siup', 'akta_perusahaan'];
