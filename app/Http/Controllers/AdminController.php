@@ -15,7 +15,7 @@ class AdminController extends Controller
     }
     public function pengajuan()
     {
-        $pengajuan = Permohonan::join('user', 'user.user_id', 'permohonan.user_id')->leftJoin('permohonan_detail', 'permohonan.permohonan_id', '=', 'permohonan_detail.permohonan_id')->get();
+        $pengajuan = Permohonan::join('user', 'user.user_id', 'permohonan.user_id')->leftJoin('permohonan_detail', 'permohonan.permohonan_id', '=', 'permohonan_detail.permohonan_id')->get(['user.*', 'permohonan.*', 'permohonan_detail.permohonan']);
         // dd($pengajuan);
         return view('admin.pengajuan', [
             'pengajuan' => $pengajuan,

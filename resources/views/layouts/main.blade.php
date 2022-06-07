@@ -37,142 +37,138 @@
 
 </head>
 
-{{-- <body>
+<body>
     @if (session()->has('success'))
         <script>
-            swal.fire('Berhasil', {
-                {
-                    session('success'), 'success'
-                }
-            });
+            swal.fire('Berhasil', {{ session('success'), 'success' }})
         </script>
-    @endif --}}
-<!-- ======= Header ======= -->
-<header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center justify-content-lg-between">
+    @endif
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-lg-between">
 
-        <h1 class="logo me-auto me-lg-0"><a href="index.php">SILONTAR<span>.</span></a></h1>
+            <h1 class="logo me-auto me-lg-0"><a href="index.php">SILONTAR<span>.</span></a></h1>
 
-        <nav id="navbar" class="navbar order-last order-lg-0">
-            <ul>
-                <li><a class="nav-link scrollto active" href="/">BERANDA</a></li>
-                <li><a class="nav-link scrollto" href="/#panduan">PANDUAN UMUM</a></li>
-                <li><a class="nav-link scrollto" href="/#tentang">TENTANG</a></li>
-                <li><a class="nav-link scrollto" href="/#kontak">KONTAK</a></li>
-                @guest
-                    <li><a class="nav-link scrollto" href="/login">LOGIN</a></li>
-
-                @endguest
-                @canany(['admin'])
-                    <li><a class="nav-link scrollto" href="/admin/beranda">DASHBOARD</a></li>
-                @endcanany
-                <li>
-                    @canany(['user'])
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="/">BERANDA</a></li>
+                    <li><a class="nav-link scrollto" href="/#panduan">PANDUAN UMUM</a></li>
+                    <li><a class="nav-link scrollto" href="/#tentang">TENTANG</a></li>
+                    <li><a class="nav-link scrollto" href="/#kontak">KONTAK</a></li>
                     <li><a class="nav-link scrollto" href="/pengajuan">PENGAJUAN</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ strtoupper(auth()->user()->nama_perusahaan) }}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">PROFIL</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item text-danger" href="/logout">LOGOUT</a></li>
-                        </ul>
+                    @guest
+                        <li><a class="nav-link scrollto" href="/login">LOGIN</a></li>
+
+                    @endguest
+                    @canany(['admin'])
+                        <li><a class="nav-link scrollto" href="/admin/beranda">DASHBOARD</a></li>
+                    @endcanany
+                    <li>
+                        @canany(['user'])
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ strtoupper(auth()->user()->nama_perusahaan) }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">PROFIL</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="/logout">LOGOUT</a></li>
+                            </ul>
+                        </li>
+                    @endcanany
                     </li>
-                @endcanany
-                </li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav>
-    </div>
-</header><!-- End Header -->
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </header><!-- End Header -->
 
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center justify-content-center">
-    <div class="container" data-aos="fade-up">
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container" data-aos="fade-up">
 
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-            <div class="col-xl-12 col-lg-8">
-                <h1>SISTEM INFORMASI LAYANAN ONLINE TRANSPARANSI DAN AKUNTABILITAS</h1>
-                <h2>BALAI BESAR PELAKSANAAN JALAN NASIONAL NUSA TENGGATA TIMUR</h2>
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+                <div class="col-xl-12 col-lg-8">
+                    <h1>SISTEM INFORMASI LAYANAN ONLINE TRANSPARANSI DAN AKUNTABILITAS</h1>
+                    <h2>BALAI BESAR PELAKSANAAN JALAN NASIONAL NUSA TENGGATA TIMUR</h2>
+                </div>
             </div>
         </div>
-    </div>
-</section><!-- End Hero -->
+    </section><!-- End Hero -->
 
 
-@yield('konten')
+    @yield('konten')
 
 
-<!-- ======= Footer ======= -->
-<footer id="footer">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-info">
-                        <h3>SILONTAR<span>.</span></h3>
-                        <p>
-                            BALAI JALAN NUSA TENGGARA TIMUR<br>
-                            <br><br>
-                        </p>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-info">
+                            <h3>SILONTAR<span>.</span></h3>
+                            <p>
+                                BALAI JALAN NUSA TENGGARA TIMUR<br>
+                                <br><br>
+                            </p>
+                        </div>
                     </div>
+
+
+                    <div class="col-lg-4 col-md-6 footer-links">
+                        <h4>Link</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#hero">BERANDA</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#service">PANDUAN UMUM</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#tentang">TENTANG</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#kontak">KONTAK</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-newsletter">
+                        <h4>Alamat</h4>
+                        <p>Tanah Merah, Kec. Kupang Tengah, Kabupaten Kupang, Nusa Tenggara Tim.</p>
+
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.845100346634!2d123.72670511438471!3d-10.111762511673845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c5681962dcf8cb7%3A0xe35b0e878df8a43d!2sBalai%20Pelaksanaan%20Jalan%20Nasional%20NTT!5e0!3m2!1sid!2sid!4v1650532982237!5m2!1sid!2sid"
+                            width="100%" height="230" style="border:0;"></iframe>
+
+                    </div>
+
                 </div>
-
-
-                <div class="col-lg-4 col-md-6 footer-links">
-                    <h4>Link</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#hero">BERANDA</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#service">PANDUAN UMUM</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#tentang">TENTANG</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#kontak">KONTAK</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-6 footer-newsletter">
-                    <h4>Alamat</h4>
-                    <p>Tanah Merah, Kec. Kupang Tengah, Kabupaten Kupang, Nusa Tenggara Tim.</p>
-
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.845100346634!2d123.72670511438471!3d-10.111762511673845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c5681962dcf8cb7%3A0xe35b0e878df8a43d!2sBalai%20Pelaksanaan%20Jalan%20Nasional%20NTT!5e0!3m2!1sid!2sid!4v1650532982237!5m2!1sid!2sid"
-                        width="100%" height="230" style="border:0;"></iframe>
-
-                </div>
-
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="copyright">
-            &copy; Copyright <strong><span>SILONTAR</span></strong>. BALAI JALAN NUSA TENGGARA TIMUR
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>SILONTAR</span></strong>. BALAI JALAN NUSA TENGGARA TIMUR
+            </div>
+            <div class="credits">
+                Designed by: ESC17
+            </div>
         </div>
-        <div class="credits">
-            Designed by: ESC17
-        </div>
-    </div>
-</footer><!-- End Footer -->
+    </footer><!-- End Footer -->
 
-<div id="preloader"></div>
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-<!-- Vendor JS Files -->
-<script src="/assets/vendor/purecounter/purecounter.js"></script>
-<script src="/assets/vendor/aos/aos.js"></script>
-<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="/assets/vendor/php-email-form/validate.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="/assets/vendor/purecounter/purecounter.js"></script>
+    <script src="/assets/vendor/aos/aos.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/vendor/php-email-form/validate.js"></script>
 
-<!-- Template Main JS File -->
-<script src="/assets/js/main.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/js/main.js"></script>
 
 </body>
 
