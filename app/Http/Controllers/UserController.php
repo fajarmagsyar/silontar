@@ -29,7 +29,7 @@ class UserController extends Controller
     {
         return view('pengajuan-list', [
             'dataUser' => User::find(auth()->user()->user_id),
-            'pengajuan' => Permohonan::join('user', 'user.user_id', '=', 'permohonan.user_id')->where('permohonan.user_id', auth()->user()->user_id)->orderBy('permohonan.created_at', 'desc')->get(),
+            'pengajuan' => Permohonan::join('user', 'user.user_id', '=', 'permohonan.user_id')->where('permohonan.user_id', auth()->user()->user_id)->orderBy('permohonan.created_at', 'desc')->paginate(10),
         ]);
     }
 
