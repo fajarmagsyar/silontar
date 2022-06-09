@@ -55,7 +55,6 @@
                     <li><a class="nav-link scrollto" href="/#panduan">PANDUAN UMUM</a></li>
                     <li><a class="nav-link scrollto" href="/#tentang">TENTANG</a></li>
                     <li><a class="nav-link scrollto" href="/#kontak">KONTAK</a></li>
-                    <li><a class="nav-link scrollto" href="/pengajuan">PENGAJUAN</a></li>
                     @guest
                         <li><a class="nav-link scrollto" href="/login">LOGIN</a></li>
 
@@ -65,6 +64,8 @@
                     @endcanany
                     <li>
                         @canany(['user'])
+                        <li><a class="nav-link scrollto" href="/pengajuan">PENGAJUAN</a></li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
