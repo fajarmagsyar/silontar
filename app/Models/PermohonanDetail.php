@@ -18,4 +18,13 @@ class PermohonanDetail extends Model
      * @var string[]
      */
     protected $guarded = ['pd_id'];
+
+    static public function getDetailById($id)
+    {
+        return PermohonanDetail::where('permohonan_id', $id)->exists();
+    }
+    static public function getDetail($id)
+    {
+        return PermohonanDetail::where('permohonan_id', $id)->first();
+    }
 }

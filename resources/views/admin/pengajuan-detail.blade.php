@@ -223,7 +223,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-start align-middle">KAB
+                                            <td class="text-start align-middle">RAB
                                                 @if ($pd->kab != null)
                                                     <a href="{{ $pd->kab }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
@@ -288,9 +288,6 @@
                                                 @endif
                                             </td>
                                             <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#surat_ijin"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
                                             </td>
                                             <td class="align-middle">Surat Mulai Kerja
                                                 @if ($pd->surat_mulai_kerja != null)
