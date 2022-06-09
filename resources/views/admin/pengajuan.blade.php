@@ -1,5 +1,6 @@
 @extends('admin.layouts.main')
 @section('content')
+
     <div class="container-fluid py-4">
         <div class="row mt-4">
             <div class="col-lg-12 mb-lg-0 mb-4">
