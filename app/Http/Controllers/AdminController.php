@@ -24,14 +24,14 @@ class AdminController extends Controller
     public function pengajuanDetail($id)
     {
         $pengajuan = Permohonan::join('user', 'user.user_id', 'permohonan.user_id')->where('permohonan.permohonan_id', $id)->first();
-        $pd = PermohonanDetail::where('permohonan_id', $id)->first();
         return view('admin.pengajuan-detail', [
             'pengajuan' => $pengajuan,
-            'pd' => $pd,
+            'pd' => PermohonanDetail::where('permohonan_id', $id)->first(),
         ]);
     }
     public function pengajuanDetailStore(Request $req, $id)
     {
+        date_default_timezone_set("Asia/Makassar");
         $jenis = $req->input('jenis');
 
         $temp_berkas = $req->file('berkas')->getPathName();
@@ -40,26 +40,29 @@ class AdminController extends Controller
         move_uploaded_file($temp_berkas, $folder_berkas);
         $berkas = '/unggah/permohonan-detail/' . $file_berkas . '.pdf';
 
-        PermohonanDetail::where('permohonan_id', $id)->update([$jenis => $berkas]);
+        PermohonanDetail::where('permohonan_id', $id)->update([$jenis => $berkas, $jenis . '_date' => date('d-m-Y H:i:s')]);
 
         return redirect('/admin/pengajuan/detail/' . $id)->with('success', 'yes');
     }
     public function pengajuanDetailTolak($id)
     {
-        PermohonanDetail::create(['permohonan_id' => $id, 'permohonan' => 'Kembalikan Berkas']);
+        date_default_timezone_set("Asia/Makassar");
+        PermohonanDetail::create(['permohonan_id' => $id, 'permohonan' => 'Kembalikan Berkas', 'permohonan_date' => date('d-m-Y H:i:s')]);
         return redirect('/admin/pengajuan/detail/' . $id)->with('success', 'yes');
     }
     public function pengajuanDetailTerima($id)
     {
-        PermohonanDetail::create(['permohonan_id' => $id, 'permohonan' => 'Setuju']);
+        date_default_timezone_set("Asia/Makassar");
+        PermohonanDetail::create(['permohonan_id' => $id, 'permohonan' => 'Setuju', 'permohonan_date' => date('d-m-Y H:i:s')]);
         return redirect('/admin/pengajuan/detail/' . $id)->with('success', 'yes');
     }
     public function pengajuanDetailUpdate(Request $req, $id)
     {
+        date_default_timezone_set("Asia/Makassar");
         if ($req->input('permohonan')) {
-            PermohonanDetail::where('permohonan_id', $id)->update([$req->input('jenis') => $req->input('permohonan')]);
+            PermohonanDetail::where('permohonan_id', $id)->update([$req->input('jenis') => $req->input('permohonan'), 'permohonan_date' => date('d-m-Y H:i:s')]);
         } else if ($req->input('lengkapi_berkas')) {
-            PermohonanDetail::where('permohonan_id', $id)->update([$req->input('jenis') => $req->input('lengkapi_berkas')]);
+            PermohonanDetail::where('permohonan_id', $id)->update([$req->input('jenis') => $req->input('lengkapi_berkas'), 'lengkapi_berkas_date' => date('d-m-Y H:i:s')]);
         }
         return redirect('/admin/pengajuan/detail/' . $id)->with('success', 'yes');
     }
@@ -77,5 +80,15 @@ class AdminController extends Controller
     public function edituser()
     {
         return view('admin.edituser');
+    }
+    public function komentarSimpan(Request $req, $id)
+    {
+        $data = [
+            'komentar' => $req->input('komentar'),
+        ];
+        // MASUKKAN KE DATABASE
+        PermohonanDetail::where('permohonan_id', $id)->update($data);
+
+        return redirect('/admin/pengajuan/detail/' . $id);
     }
 }

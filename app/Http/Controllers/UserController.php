@@ -50,10 +50,11 @@ class UserController extends Controller
 
         foreach ($teknis as $key2 => $s) {
             $temp_berkas = $request->file($s)->getPathName();
+            $ex = $request->file($s)->extension();
             $file_berkas = auth()->user()->user_id . '-' . $s . time();
-            $folder_berkas = "unggah/teknis-permohonan/" . $file_berkas . ".pdf";
+            $folder_berkas = "unggah/teknis-permohonan/" . $file_berkas . "." . $ex;
             move_uploaded_file($temp_berkas, $folder_berkas);
-            $foto[$key2] = '/unggah/teknis-permohonan/' . $file_berkas . '.pdf';
+            $foto[$key2] = '/unggah/teknis-permohonan/' . $file_berkas . "." . $ex;
         }
 
         $data = [
