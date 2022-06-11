@@ -94,7 +94,7 @@
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
                 <div class="col-xl-12 col-lg-8">
                     <h1>SISTEM INFORMASI LAYANAN ONLINE TRANSPARANSI DAN AKUNTABILITAS</h1>
-                    <h2>BALAI BESAR PELAKSANAAN JALAN NASIONAL NUSA TENGGATA TIMUR</h2>
+                    <h2>BALAI PELAKSANAAN JALAN NASIONAL NUSA TENGGATA TIMUR</h2>
                 </div>
             </div>
         </div>
@@ -114,7 +114,7 @@
                         <div class="footer-info">
                             <h3>SILONTAR<span>.</span></h3>
                             <p>
-                                BALAI JALAN NUSA TENGGARA TIMUR<br>
+                                BALAI PELAKSANAAN JALAN NASIONAL NUSA TENGGARA TIMUR<br>
                                 <br><br>
                             </p>
                         </div>
@@ -147,7 +147,7 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>SILONTAR</span></strong>. BALAI JALAN NUSA TENGGARA TIMUR
+                &copy; Copyright <strong><span>SILONTAR</span></strong>. BALAI PELAKSANAAN JALAN NASIONAL NUSA TENGGARA TIMUR
             </div>
             <div class="credits">
                 Designed by: ESC17
