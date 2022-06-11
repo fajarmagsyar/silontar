@@ -25,6 +25,10 @@ class PermohonanDetail extends Migration
             $table->string('kab')->nullable();
             $table->string('izin_prinsip')->nullable();
             $table->string('lengkapi_berkas')->nullable();
+            $table->string('gambar_lokasi')->nullable();
+            $table->string('gambar_konstruksi')->nullable();
+            $table->string('jadwal_pelaksanaan')->nullable();
+            $table->string('sanggup_bayar')->nullable();
             $table->string('rekom_teknis')->nullable();
             $table->string('surat_ijin')->nullable();
             $table->string('surat_mulai_kerja')->nullable();
