@@ -26,6 +26,8 @@ Route::post('/pengajuan/store', [UserController::class, 'pengajuanStore']);
 Route::post('/auth', [AuthController::class, 'login']);
 Route::get('/profil', [AuthController::class, 'profil']);
 Route::get('/logout', [AuthController::class, 'logout']);
+Route::post('/uploadSurat/{id}', [UserController::class, 'mulaiKerjaUpload']);
+Route::post('/uploadBerkas/{id}', [UserController::class, 'berkasUpload']);
 
 
 Route::prefix('admin')->group(function () {
