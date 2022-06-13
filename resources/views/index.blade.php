@@ -127,12 +127,17 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
-                        <h4><a href="">MEDIAN SOSIAL</a></h4>
+                        <h4>MEDIA SOSIAL</h4>
                         <p>
-                            <i class="bi bi-envelope-fill"> balaijalanntt@gmail.com</i><br>
-                            <i class="bi bi-facebook"> balaijalanxntt</i><br>
-                            <i class="bi bi-whatsapp"> +62</i><br>
-                            <i class="bi bi-twitter"> balaijalanntt</i>
+                            <i class="bi bi-envelope-fill"> 
+                                <a href= "https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=riokoho590@gmail.com" target="_blank">balaijalanntt@mjurnal.com</a></i><br>
+                            <i class="bi bi-facebook"> <a href="https://www.facebook.com/pages/Redland-BPJN-X-Kupang/141964382947530" target="_blank"> balaijalanxntt</a></i><br>
+                            <i class="bi bi-whatsapp"> 
+                            <a href="https://wa.me/+6282247899017?text=Hallo%20admin" target="_blank">+6282247899017</a></i>
+                            <br>
+                            <i class="bi bi-instagram">
+                                <a href="https://www.instagram.com/pupr_jalan_ntt/?hl=id" target="_blank">pupr_jalan_ntt</a>
+                            </i>
                         </p>
                     </div>
 
@@ -141,8 +146,10 @@
 
                 <div class="col-lg-6 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
                     <div class="icon-box">
-                        <h4><a href="">TELEPON</a></h4>
-                        <i class="bi bi-telephone-fill"> (022-0001)</i>
+                        <h4>TELEPON</h4>
+                        <i class="bi bi-telephone-fill">
+                            <a href="tel:+6282247899017">+6282247899017</a>
+                        </i>
                     </div>
                 </div>
 
