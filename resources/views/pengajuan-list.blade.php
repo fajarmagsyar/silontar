@@ -248,7 +248,7 @@
                                                                 <br>
                                                                 <span class="btn btn-success text-white mt-3 w-100"><i
                                                                         class="bi bi-check"></i>
-                                                                    Persyaratan Telah Unggah</span>
+                                                                    Persyaratan Telah di Kirim</span>
                                                             @endif
                                                         @endif
                                                         @if (PermohonanDetail::getDetail($r->permohonan_id)->surat_ijin != null)
@@ -388,8 +388,10 @@
                                                                 <div class="px-auto p-1">
                                                                     <div class="row mb-1">
                                                                         <div
-                                                                            class="col-lg-6 col-sm-12 text-center mx-auto mt-1 mb-1">
-                                                                            Permohonan anda: <br>
+                                                                            class="col-lg-8 col-sm-12 text-center mx-auto mt-1 mb-1">
+                                                                            Permohonan anda<span class="text-muted" style="font-size: 13px"> di upload: {{ $detailGet->permohonan_date }}</span>
+                                                                            <br>
+                                                                            Di 
                                                                             @if ($detailGet->permohonan == 'Kembalikan Berkas')
                                                                                 <span
                                                                                     class="badge bg-danger">{{ $detailGet->permohonan }}</span>
@@ -397,12 +399,14 @@
                                                                                 <span
                                                                                     class="badge bg-success">{{ $detailGet->permohonan }}</span>
                                                                             @endif
+                                                                            Pada Tanggal:
+                                                                            <span class="text-muted" style="font-size: 13px">{{ $detailGet->permohonan_date }}</span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row mb-1">
                                                                         <div
-                                                                            class="col-lg-6 col-sm-12 text-center mx-auto mt-1 mb-4">
-                                                                            Komentar: <br>
+                                                                            class="col-lg-12 col-sm-12 text-left mx-auto mt-1 mb-4">
+                                                                            Pemberitahuan: <br>
                                                                             <textarea class="form-control" cols="30" rows="5" readonly>{{ $detailGet->komentar }}</textarea>
                                                                         </div>
                                                                     </div>
@@ -410,9 +414,11 @@
                                                                 @else
                                                                 <div class="px-auto p-3">
                                                                     <div class="row mb-3">
-                                                                        <div
-                                                                            class="col-lg-6 col-sm-12 text-center mx-auto mt-1 mb-4">
-                                                                            Permohonan anda: <br>
+                                                                        <div class="col-lg-6 col-sm-12 text-center mx-auto mt-1 mb-4">
+                                                                            Permohonan anda
+                                                                            <span class="text-muted" style="font-size: 13px">di upload: {{ $detailGet->permohonan_date }}</span>
+                                                                             <br>
+                                                                             <div class="col-lg-8 col-sm-12 text-center mx-auto mt-1 mb-3"> Di
                                                                             @if ($detailGet->permohonan == 'Kembalikan Berkas')
                                                                                 <span
                                                                                     class="badge bg-danger">{{ $detailGet->permohonan }}</span>
@@ -420,6 +426,9 @@
                                                                                 <span
                                                                                     class="badge bg-success">{{ $detailGet->permohonan }}</span>
                                                                             @endif
+                                                                             Pada Tanggal:
+                                                                             <span class="text-muted" style="font-size: 12px">{{ $detailGet->permohonan_date }}</span>
+                                                                        </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
@@ -611,9 +620,7 @@
                                                                                             Lengkap:</div>
                                                                                         @if ($detailGet->lengkapi_berkas != null && $detailGet->lengkapi_berkas == 'Tidak Sesuai BA')
                                                                                             {{ $detailGet->lengkapi_berkas }},
-                                                                                            Silahkan upload kembali Gambar
-                                                                                            Lokasi, Konstruksi & Jadwal
-                                                                                            Pelaksanaan
+                                                                                            Silahkan Melengkapi persayaratan pada form melengkapi Persyaratan
                                                                                         @elseif($detailGet->lengkapi_berkas != null)
                                                                                             {{ $detailGet->lengkapi_berkas }}
                                                                                         @endif

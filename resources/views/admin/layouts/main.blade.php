@@ -32,8 +32,8 @@
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
             <p class="navbar-brand m-0">
-                <img src="/admin/assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-1 font-weight-bold">Admin</span>
+                <img src="/admin/assets/img/Logo.png" class="navbar-brand-img h-100">
+                <span class="ms-1 font-weight-bold">BPJN NTT</span>
             </p>
         </div>
         <hr class="horizontal dark mt-0">
@@ -102,11 +102,7 @@
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            <span class="input-group-text text-body"><i class="fas fa-search"
-                                    aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Type here...">
-                        </div>
+                        
                     </div>
 
                 </div>
