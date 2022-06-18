@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('alamat_perusahaan')->nullable();
             $table->string('lokasi_permohonan')->nullable();
             $table->string('role');
+            $table->string('token');
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });
