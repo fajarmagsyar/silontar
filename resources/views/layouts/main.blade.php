@@ -45,7 +45,7 @@
 <body>
     @if (session()->has('success'))
         <script>
-            swal.fire('Berhasil', {{ session('success'), 'success' }})
+            Swal.fire("Berhasil", "{{ session('success') }}", "success");
         </script>
     @endif
     <!-- ======= Header ======= -->
@@ -178,7 +178,6 @@
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
-
     <script>
         $('document').ready(function() {
             $(".fp").flatpickr();
