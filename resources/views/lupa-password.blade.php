@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SiLONTAR - Login</title>
+    <title>SiLONTAR - Lupa Password</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -33,6 +33,11 @@
 
 <body style="background-color: #FFE468">
 
+    @if (session()->has('error'))
+        <script>
+            Swal.fire("Gagal", "{{ session('error') }}", "error");
+        </script>
+    @endif
 
     <!-- Quote Start -->
     <div class="container-fluid bg-primary bg-quote py-5">
@@ -42,33 +47,25 @@
                     <div class="bg-white text-center p-5" style="border-radius: 20px">
                         <img src="/logo.png" width="100px" alt="">
                         <h1 class="mb-4 mt-4">SiLontar</h1>
-                        <form action="/auth" method="post">
+                        <form action="/auth/reset-pass" method="post">
                             @csrf
                             <div class="row g-3">
                                 @if (session()->has('error'))
                                     <div class="alert alert-danger">{{ session('error') }}</div>
                                 @endif
-
                                 @if (session()->has('success'))
                                     <div class="alert alert-success">{{ session('success') }}</div>
                                 @endif
+                                <div class="text-muted">
+                                    Masukkan email anda untuk melakukan reset password.
+                                </div>
                                 <div class="col-12 col-sm-12">
                                     <input type="email" class="form-control bg-light border-0" name="email"
                                         placeholder="Email anda" style="height: 55px;">
                                 </div>
-                                <div class="col-12 col-sm-12">
-                                    <input type="password" class="form-control bg-light border-0" name="password"
-                                        placeholder="Password" style="height: 55px;">
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Login</button>
-                                </div>
-                                <div class="col-6">
-                                    <label for=""><a href="/lupa-password" style="color:rgb(43, 95, 185)">Lupa
-                                            password?</a></label>
-                                </div>
-                                <div class="col-6">
-                                    <a href="/registrasi" class="btn btn-dark w-100">Daftar</a>
+                                <div class="col-6 ml-auto">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Reset
+                                        Password</button>
                                 </div>
                             </div>
                         </form>
@@ -79,8 +76,7 @@
     </div>
     <!-- Quote End -->
 
-
-    <!-- Footer Start -->
+    <br><br <!-- Footer Start -->
     <div class="container-fluid bg-dark bg-footer text-light py-5">
         <div class="container py-0">
             <div class="row g-5">

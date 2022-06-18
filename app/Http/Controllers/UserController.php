@@ -24,8 +24,16 @@ class UserController extends Controller
         return view('login');
     }
 
+    public function lupaPassword()
+    {
+        return view('lupa-password');
+    }
+
     public function pengajuan()
     {
+        if (auth()->user()->email_verified_at == null) {
+            return redirect('/verifikasi-akun')->with('error', 'Mohon verifikasi terlebih dahulu!');
+        }
         return view('pengajuan', [
             'dataUser' => User::find(auth()->user()->user_id),
             'pageTitle' => 'SILONTAR | Pengajuan',
