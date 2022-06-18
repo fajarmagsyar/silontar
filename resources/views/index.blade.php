@@ -17,7 +17,7 @@
                 pemanfaatan bagian-bagian jalan nasional Nusa Tenggara Timur.
                 Sistem Informasi ini berguna untuk
                 memudahkan masyarakat baik sebagai perorangan, organisasi, badan usaha atau instansi pemerintah
-                untuk mengajukan permohonan pemanfaatan ruang milik jalan yang dikelola oleh Balai Besar Pelaksanaan
+                untuk mengajukan permohonan pemanfaatan ruang milik jalan yang dikelola oleh Balai Pelaksanaan
                 Jalan Nasional Nusa Tenggara Timur.
             </p>
 
@@ -38,8 +38,7 @@
                         <div class="icon"><i class="bi bi-laptop-fill"></i></div>
                         <h4><a href="">1. Lakukan Pendaftaran Online</a></h4>
                         <p>Sebelum dapat melakukan pengajuan, user diharuskan melakukan pendaftaran online terlebih
-                            dahulu
-                            dengan menggunakan alamat email yang valid dan masih digunakan.</p>
+                            dahulu. Pendaftaran dapat dilakukan melalui form login kemudian memilih bagian Registrasi untuk bisa mendaftarkan akun.</p>
                     </div>
                 </div>
 
@@ -47,8 +46,9 @@
                     <div class="icon-box">
                         <div class="icon"><i class="bi bi-box-arrow-in-right"></i></div>
                         <h4><a href="">2. Login Ke Aplikasi Perijinan</a></h4>
-                        <p>Bagi user yang sudah melakukan verifikasi pendaftaran bisa melakukan login ke aplikasi
-                            perijinan untuk dapat melakukan pengajuan perijinan.</p>
+                        <p>Jika sudah melakukan pendaftaran nanti akan diberikan verifkasi akun melalui email.
+                            Setelah melakukan verifikasi user bisa melakukan login ke sistem menggunakan Email dan Password yang telah daftarkan.
+                            Setelah itu user bisa dapat melakukan pengajuan perijinan.</p>
                     </div>
                 </div>
 
@@ -56,18 +56,16 @@
                     <div class="icon-box">
                         <div class="icon"><i class="bi bi-pencil-square"></i></div>
                         <h4><a href="">3. Mengisi Formulir Pengajuan</a></h4>
-                        <p>User melakukan pengajuan perijinan dengan cara mengisi formulir pengajuan yang bisa ditemukan
-                            pada menu Ajukan Permohonan di dalam aplikasi perijinan. Template Dokumen Dapat di Liat <a href="">Disini</a></p>
+                        <p>User melakukan pengajuan perijinan dengan cara mengapload persyaratan pengajuan yang ditentukan oleh Balai pelaksanaan jalan nasional nusa tenggara timur.</p>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
-                        <div class="icon"><i class="bi bi-file-earmark-arrow-up-fill"></i></div>
-                        <h4><a href="">4. Menyerahkan Hardcopy Dokumen</a></h4>
-                        <p> Serahkan hardcopy dokumen pendukung terkait pengajuan perijinan yang telah dibuat ke kantor
-                            Balai Besar
-                            Pelaksanaan Jalan Nasional X Nusa tenggara timur agar permohonan Anda dapat segera diproses.
+                        <div class="icon"><i class="bi bi-hourglass-split"></i></div>
+                        <h4><a href="">4. Menunggu Valdasi</a></h4>
+                        <p> 
+                            Setelah mengapload persyaratan yang di tentukan, Pemohon menunggu proses validasi oleh balai pelaksaan jalan Nasional. apa bila persayaratan di terima pemohon melanjutkan proses ke tahap berikutnya dan apa bila persyaratan di tolak maka pemohon tidak dapat melakukan pengajuan.
                         </p>
                     </div>
                 </div>
@@ -112,7 +110,7 @@
                 <h2>TENTANG KAMI</h2>
             </div>
             <p>
-                BALAI JALAN X NUSA TENGGARA TIMUR merupakan kantor.......
+                BALAI PELAKSANAAN JALAN NASIONAL NUSA TENGGARA TIMUR merupakan kantor.......
             </p>
 
         </div>
@@ -129,12 +127,17 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
-                        <h4><a href="">MEDIAN SOSIAL</a></h4>
+                        <h4>MEDIA SOSIAL</h4>
                         <p>
-                            <i class="bi bi-envelope-fill"> balaijalanxntt@gmail.com</i><br>
-                            <i class="bi bi-facebook"> balaijalanxntt</i><br>
-                            <i class="bi bi-whatsapp"> +62</i><br>
-                            <i class="bi bi-twitter"> balaijalanxntt</i>
+                            <i class="bi bi-envelope-fill"> 
+                                <a href= "https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=riokoho590@gmail.com" target="_blank">balaijalanntt@mjurnal.com</a></i><br>
+                            <i class="bi bi-facebook"> <a href="https://www.facebook.com/pages/Redland-BPJN-X-Kupang/141964382947530" target="_blank"> balaijalanxntt</a></i><br>
+                            <i class="bi bi-whatsapp"> 
+                            <a href="https://wa.me/+6282247899017?text=Hallo%20admin" target="_blank">+6282247899017</a></i>
+                            <br>
+                            <i class="bi bi-instagram">
+                                <a href="https://www.instagram.com/pupr_jalan_ntt/?hl=id" target="_blank">pupr_jalan_ntt</a>
+                            </i>
                         </p>
                     </div>
 
@@ -143,8 +146,10 @@
 
                 <div class="col-lg-6 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
                     <div class="icon-box">
-                        <h4><a href="">TELEPON</a></h4>
-                        <i class="bi bi-telephone-fill"> (022-0001)</i>
+                        <h4>TELEPON</h4>
+                        <i class="bi bi-telephone-fill">
+                            <a href="tel:+6282247899017">+6282247899017</a>
+                        </i>
                     </div>
                 </div>
 

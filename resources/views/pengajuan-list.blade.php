@@ -248,7 +248,7 @@
                                                                 <br>
                                                                 <span class="btn btn-success text-white mt-3 w-100"><i
                                                                         class="bi bi-check"></i>
-                                                                    Persyaratan Telah Unggah</span>
+                                                                    Persyaratan Telah di Kirim</span>
                                                             @endif
                                                         @endif
                                                         @if (PermohonanDetail::getDetail($r->permohonan_id)->surat_ijin != null)
@@ -384,11 +384,14 @@
                                                                 @php
                                                                     $detailGet = PermohonanDetail::getDetail($r->permohonan_id);
                                                                 @endphp
-                                                                <div class="px-auto p-3">
-                                                                    <div class="row mb-3">
+                                                                @if ($detailGet->permohonan == "Kembalikan Berkas")
+                                                                <div class="px-auto p-1">
+                                                                    <div class="row mb-1">
                                                                         <div
-                                                                            class="col-lg-6 col-sm-12 text-center mx-auto mt-1 mb-4">
-                                                                            Permohonan anda: <br>
+                                                                            class="col-lg-8 col-sm-12 text-center mx-auto mt-1 mb-1">
+                                                                            Permohonan anda<span class="text-muted" style="font-size: 13px"> di upload: {{ $detailGet->permohonan_date }}</span>
+                                                                            <br>
+                                                                            Di 
                                                                             @if ($detailGet->permohonan == 'Kembalikan Berkas')
                                                                                 <span
                                                                                     class="badge bg-danger">{{ $detailGet->permohonan }}</span>
@@ -396,6 +399,36 @@
                                                                                 <span
                                                                                     class="badge bg-success">{{ $detailGet->permohonan }}</span>
                                                                             @endif
+                                                                            Pada Tanggal:
+                                                                            <span class="text-muted" style="font-size: 13px">{{ $detailGet->permohonan_date }}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mb-1">
+                                                                        <div
+                                                                            class="col-lg-12 col-sm-12 text-left mx-auto mt-1 mb-4">
+                                                                            Pemberitahuan: <br>
+                                                                            <textarea class="form-control" cols="30" rows="5" readonly>{{ $detailGet->komentar }}</textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                @else
+                                                                <div class="px-auto p-3">
+                                                                    <div class="row mb-3">
+                                                                        <div class="col-lg-6 col-sm-12 text-center mx-auto mt-1 mb-4">
+                                                                            Permohonan anda
+                                                                            <span class="text-muted" style="font-size: 13px">di upload: {{ $detailGet->permohonan_date }}</span>
+                                                                             <br>
+                                                                             <div class="col-lg-8 col-sm-12 text-center mx-auto mt-1 mb-3"> Di
+                                                                            @if ($detailGet->permohonan == 'Kembalikan Berkas')
+                                                                                <span
+                                                                                    class="badge bg-danger">{{ $detailGet->permohonan }}</span>
+                                                                            @else
+                                                                                <span
+                                                                                    class="badge bg-success">{{ $detailGet->permohonan }}</span>
+                                                                            @endif
+                                                                             Pada Tanggal:
+                                                                             <span class="text-muted" style="font-size: 12px">{{ $detailGet->permohonan_date }}</span>
+                                                                        </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
@@ -407,6 +440,7 @@
                                                                                         <div class="fw-bold">Nota
                                                                                             Dinas
                                                                                         </div>
+                                                                                        <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->nota_dinas_date }}</span>
                                                                                     </div>
                                                                                     @if ($detailGet->nota_dinas != null)
                                                                                         <a
@@ -430,6 +464,7 @@
                                                                                         <div class="fw-bold">
                                                                                             Disposisi
                                                                                         </div>
+                                                                                        <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->disposisi_date }}</span>
                                                                                     </div>
                                                                                     @if ($detailGet->disposisi != null)
                                                                                         <a
@@ -457,6 +492,7 @@
                                                                                         <div class="fw-bold">
                                                                                             Undangan
                                                                                         </div>
+                                                                                        <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->undangan_date }}</span>
                                                                                     </div>
                                                                                     @if ($detailGet->undangan != null)
                                                                                         <a
@@ -479,8 +515,9 @@
                                                                                     <div class="ms-2 me-auto">
                                                                                         <div class="fw-bold">Berita
                                                                                             Acara
-                                                                                        </div>
                                                                                     </div>
+                                                                                    <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->ba_date }}</span>
+                                                                                </div>
                                                                                     @if ($detailGet->ba != null)
                                                                                         <a href="{{ $detailGet->ba }}">
                                                                                             <span
@@ -505,7 +542,8 @@
                                                                                         <div class="fw-bold">Berita
                                                                                             Acara
                                                                                             Survey</div>
-                                                                                    </div>
+                                                                                            <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->ba_survey_date }}</span>
+                                                                                        </div>
                                                                                     @if ($detailGet->ba_survey != null)
                                                                                         <a
                                                                                             href="{{ $detailGet->ba_survey }}">
@@ -527,6 +565,7 @@
                                                                                     <div class="ms-2 me-auto">
                                                                                         <div class="fw-bold">RAB
                                                                                         </div>
+                                                                                        <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->kab_date }}</span>
                                                                                     </div>
                                                                                     @if ($detailGet->kab != null)
                                                                                         <a href="{{ $detailGet->kab }}">
@@ -555,6 +594,7 @@
                                                                                         <div class="fw-bold">Izin
                                                                                             Prinsip
                                                                                         </div>
+                                                                                        <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->izin_prinsip_date }}</span>
                                                                                     </div>
                                                                                     @if ($detailGet->izin_prinsip != null)
                                                                                         <a
@@ -580,12 +620,11 @@
                                                                                             Lengkap:</div>
                                                                                         @if ($detailGet->lengkapi_berkas != null && $detailGet->lengkapi_berkas == 'Tidak Sesuai BA')
                                                                                             {{ $detailGet->lengkapi_berkas }},
-                                                                                            Silahkan upload kembali Gambar
-                                                                                            Lokasi, Konstruksi & Jadwal
-                                                                                            Pelaksanaan
+                                                                                            Silahkan Melengkapi persayaratan pada form melengkapi Persyaratan
                                                                                         @elseif($detailGet->lengkapi_berkas != null)
                                                                                             {{ $detailGet->lengkapi_berkas }}
                                                                                         @endif
+                                                                                        <div class="text-muted" style="font-size: 13px">Tanggal diubah: {{ $detailGet->lengkapi_berkas_date }}</div>
                                                                                     </div>
                                                                                     @if ($detailGet->lengkapi_berkas != null)
                                                                                         <span
@@ -605,6 +644,7 @@
                                                                                         <div class="fw-bold">
                                                                                             Rekomendasi
                                                                                             Teknis</div>
+                                                                                        <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->rekom_teknis_date }}</span>
                                                                                     </div>
                                                                                     @if ($detailGet->rekom_teknis != null)
                                                                                         <a
@@ -628,6 +668,7 @@
                                                                                         <div class="fw-bold">Surat
                                                                                             Izin
                                                                                         </div>
+                                                                                        <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->surat_ijin_date }}</span>
                                                                                     </div>
                                                                                     @if ($detailGet->surat_ijin != null)
                                                                                         <a
@@ -651,6 +692,7 @@
                                                                                         <div class="fw-bold">Surat
                                                                                             Mulai
                                                                                             Kerja</div>
+                                                                                        <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->surat_mulai_kerja_date }}</span>
                                                                                     </div>
                                                                                     @if ($detailGet->surat_mulai_kerja != null)
                                                                                         <a
@@ -676,8 +718,9 @@
                                                                                     class="list-group-item d-flex justify-content-between align-items-start">
                                                                                     <div class="ms-2 me-auto">
                                                                                         <div class="fw-bold">KPKNL
-                                                                                        </div>
                                                                                     </div>
+                                                                                    <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->kpknl_date }}</span>
+                                                                                </div>
                                                                                     @if ($detailGet->kpknl != null)
                                                                                         <a
                                                                                             href="{{ $detailGet->kpknl }}">
@@ -699,8 +742,9 @@
                                                                                     <div class="ms-2 me-auto">
                                                                                         <div class="fw-bold">Dirjen
                                                                                             BM
-                                                                                        </div>
                                                                                     </div>
+                                                                                    <span class="text-muted" style="font-size: 13px">Tanggal upload: {{ $detailGet->dirjen_bm_date }}</span>
+                                                                                </div>
                                                                                     @if ($detailGet->dirjen_bm != null)
                                                                                         <a
                                                                                             href="{{ $detailGet->dirjen_bm }}">
@@ -723,6 +767,7 @@
 
                                                                     </div>
                                                                 </div>
+                                                                @endif
                                                             @else
                                                                 <div class="alert alert-danger text-center">
                                                                     <span style="font-size: 30px"><i
@@ -736,7 +781,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
+                                                                data-bs-dismiss="modal">Tutup</button>
                                                         </div>
                                                     </div>
                                                 </div>

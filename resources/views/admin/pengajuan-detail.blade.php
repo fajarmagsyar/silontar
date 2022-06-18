@@ -141,10 +141,51 @@
                         </div>
                         <div class="card-body">
                             <div class="row px-4">
+                                @if($pd->permohonan == "Kembalikan Berkas")
                                 <div class="table-responsive">
                                     <table class="table">
                                         <tr>
-                                            <td class="text-start align-middle">Status Permohonan</td>
+                                            <td class="text-start align-middle">Status Permohonan
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->permohonan_date }}</span>
+                                            </td>
+                                            <td class="align-middle">
+                                                <form
+                                                    action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/update"
+                                                    method="post" name="status_permohonan">
+                                                    @csrf
+                                                    <input type="hidden" name="jenis" value="permohonan">
+                                                    <input type="radio" onchange="statusSubmit()" name="permohonan"
+                                                        value="Setuju"
+                                                        {{ $pd->permohonan == 'Setuju' ? 'checked' : '' }}>
+                                                    Setuju <br>
+                                                    <input type="radio" onchange="statusSubmit()" name="permohonan"
+                                                        value="Kembalikan Berkas"
+                                                        {{ $pd->permohonan == 'Kembalikan Berkas' ? 'checked' : '' }}>
+                                                    Kembalikan
+                                                    Berkas
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <form action="/admin/pengajuan/detail/{{$pengajuan->permohonan_id}}/komentar" method="post">
+                                @csrf
+                                    <div class="mt-1 mb-3">
+                                    Masukkan komentar:
+                                    <textarea name="komentar" class="form-control" id="" cols="30" rows="5" placeholder="{{ ($pd->komentar != null) ? '' : 'Masukkan komentar anda' }}">{{ ($pd->komentar != null) ? $pd->komentar : '' }}</textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary float-end">Kirim</button>
+                                </div>
+                                </form>
+                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->komentar_date }}</span>
+                                @else
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="text-start align-middle">Status Permohonan
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->permohonan_date }}</span>
+                                            </td>
                                             <td class="align-middle">
                                                 <form
                                                     action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/update"
@@ -167,6 +208,7 @@
                                                     <a href="{{ $pd->nota_dinas }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->nota_dinas_date }}</span>
                                             </td>
                                             <td class="align-middle">
                                                 <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
@@ -180,6 +222,7 @@
                                                     <a href="{{ $pd->disposisi }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->disposisi_date }}</span>
                                             </td>
                                             <td class="align-middle">
                                                 <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
@@ -191,6 +234,7 @@
                                                     <a href="{{ $pd->undangan }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->undangan_date }}</span>
                                             </td>
                                             <td class="align-middle">
                                                 <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
@@ -204,6 +248,7 @@
                                                     <a href="{{ $pd->ba }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->ba_date }}</span>
                                             </td>
                                             <td class="align-middle">
                                                 <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
@@ -215,6 +260,7 @@
                                                     <a href="{{ $pd->ba_survey }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->ba_survey_date }}</span>
                                             </td>
                                             <td class="align-middle">
                                                 <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
@@ -228,6 +274,8 @@
                                                     <a href="{{ $pd->kab }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->kab_date }}</span>
+                                                
                                             </td>
                                             <td class="align-middle">
                                                 <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
@@ -239,6 +287,8 @@
                                                     <a href="{{ $pd->izin_prinsip }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->izin_prinsip_date }}</span>
                                             </td>
                                             <td class="align-middle">
                                                 <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
@@ -248,6 +298,7 @@
                                         </tr>
                                         <tr>
                                             <td class="text-start align-middle">Verifikasi Sesuai Permohonan Data Perubahan
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->lengkapi_berkas_date }}</span>
                                             </td>
                                             <td class="align-middle">
                                                 <form
@@ -273,6 +324,8 @@
                                                     <a href="{{ $pd->rekom_teknis }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->rekom_teknis_date }}</span>
+                                                
                                             </td>
                                             <td class="align-middle">
                                                 <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
@@ -286,6 +339,8 @@
                                                     <a href="{{ $pd->surat_ijin }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->surat_ijin_date }}</span>
+                                                
                                             </td>
                                             <td class="align-middle">
                                                 <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
@@ -297,6 +352,8 @@
                                                     <a href="{{ $pd->surat_mulai_kerja }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->surat_mulai_kerja_date }}</span>
+                                                
                                             </td>
                                             <td class="align-middle">
                                             </td>
@@ -307,6 +364,8 @@
                                                     <a href="{{ $pd->kpknl }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->kpknl_date }}</span>
+                                                
                                             </td>
                                             <td class="align-middle">
                                                 <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
@@ -318,6 +377,8 @@
                                                     <a href="{{ $pd->dirjen_bm }}"><i
                                                             class="ni ni-cloud-download-95"></i></a>
                                                 @endif
+                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->dirjen_bm_date }}</span>
+                                                
                                             </td>
                                             <td class="align-middle">
                                                 <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
@@ -327,6 +388,7 @@
                                         </tr>
                                     </table>
                                 </div>
+                                @endif
                             </div>
 
                             <!-- Modals -->
