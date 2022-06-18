@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>SILONTAR</title>
+    <title>{{ $pageTitle }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -56,7 +56,8 @@
 
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="/">BERANDA</a></li>
+                    <li><a class="nav-link scrollto {{ $page == 'beranda' ? 'active' : '' }}"
+                            href="/">BERANDA</a></li>
                     <li><a class="nav-link scrollto" href="/#panduan">PANDUAN UMUM</a></li>
                     <li><a class="nav-link scrollto" href="/#tentang">TENTANG</a></li>
                     <li><a class="nav-link scrollto" href="/#kontak">KONTAK</a></li>
@@ -69,7 +70,8 @@
                     @endcanany
                     <li>
                         @canany(['user'])
-                        <li><a class="nav-link scrollto" href="/pengajuan">PENGAJUAN</a></li>
+                        <li><a class="nav-link scrollto {{ $page == 'pengajuan' ? 'active' : '' }}"
+                                href="/pengajuan/list">PENGAJUAN</a></li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -152,7 +154,8 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>SILONTAR</span></strong>. BALAI PELAKSANAAN JALAN NASIONAL NUSA TENGGARA TIMUR
+                &copy; Copyright <strong><span>SILONTAR</span></strong>. BALAI PELAKSANAAN JALAN NASIONAL NUSA TENGGARA
+                TIMUR
             </div>
             <div class="credits">
                 Designed by: ESC17

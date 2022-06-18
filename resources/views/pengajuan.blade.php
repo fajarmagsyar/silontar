@@ -11,9 +11,6 @@
                             <h3 class="mb-5"><b><a href=""><i class="bi bi-arrow-left mr-2"></i></a> FORM
                                     PENGAJUAN</b>
 
-                                <a href="/pengajuan/list" class="btn shadow btn-warning text-white float-end"><i
-                                        class="bi bi-list-task"></i>
-                                    List Pengajuan</a>
                             </h3>
 
                             <form action="/pengajuan/store" method="POST" enctype="multipart/form-data">
@@ -94,18 +91,21 @@
                                         </div>
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">NIB:</label>
-                                            <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
-                                                name="nib" style="font-size: 15px" aria-describedby="emailHelp">
+                                            <input type="file" accept=".pdf" id="exampleInputEmail1"
+                                                class="text-dark" name="nib" style="font-size: 15px"
+                                                aria-describedby="emailHelp">
                                         </div>
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">SIUP:</label>
-                                            <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
-                                                name="siup" style="font-size: 15px" aria-describedby="emailHelp">
+                                            <input type="file" accept=".pdf" id="exampleInputEmail1"
+                                                class="text-dark" name="siup" style="font-size: 15px"
+                                                aria-describedby="emailHelp">
                                         </div>
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">Akta Perusahaan:</label>
-                                            <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
-                                                name="akta_perusahaan" style="font-size: 15px" aria-describedby="emailHelp">
+                                            <input type="file" accept=".pdf" id="exampleInputEmail1"
+                                                class="text-dark" name="akta_perusahaan" style="font-size: 15px"
+                                                aria-describedby="emailHelp">
                                         </div>
                                     </div>
                                 </div>

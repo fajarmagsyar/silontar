@@ -408,7 +408,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Nota Dinas</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -439,7 +439,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Disposisi</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -470,7 +470,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Undangan</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -501,7 +501,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Berita Acara</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -532,7 +532,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Survey Berita Acara</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -563,7 +563,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">KAB</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -594,7 +594,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Izin Prinsip</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -625,7 +625,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Rekomendasi Teknis</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -656,7 +656,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Surat Izin</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -687,7 +687,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Surat Mulai Kerja</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -718,7 +718,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">KPKNL</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -749,7 +749,7 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Dirjen BM</p>
-                                                    <input type="file" name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
