@@ -79,7 +79,7 @@
                                 {{ strtoupper(auth()->user()->nama_perusahaan) }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">PROFIL</a></li>
+                                <li><a class="dropdown-item" href="/profil">PROFIL</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

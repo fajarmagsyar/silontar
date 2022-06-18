@@ -31,6 +31,7 @@ Route::post('/auth/reset-pass/store/{token}', [AuthController::class, 'resetPass
 Route::get('/reset-password/{token}', [AuthController::class, 'resetForm']);
 Route::get('/verifikasi-akun', [AuthController::class, 'verifikasiTokenPage']);
 Route::get('/kirim-token', [AuthController::class, 'kirimToken']);
+Route::post('/profil/ubahpassword', [UserController::class, 'ubahPassword']);
 Route::get('/profil', [AuthController::class, 'profil']);
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::post('/uploadSurat/{id}', [UserController::class, 'mulaiKerjaUpload']);
