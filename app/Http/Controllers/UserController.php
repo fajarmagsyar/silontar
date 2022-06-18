@@ -11,7 +11,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('index');
+        return view('index', [
+            'pageTitle' => 'SILONTAR | Beranda',
+            'page' => 'beranda',
+        ]);
     }
 
     public function login()
@@ -23,6 +26,8 @@ class UserController extends Controller
     {
         return view('pengajuan', [
             'dataUser' => User::find(auth()->user()->user_id),
+            'pageTitle' => 'SILONTAR | Pengajuan',
+            'page' => 'pengajuan',
         ]);
     }
 
@@ -31,6 +36,8 @@ class UserController extends Controller
         return view('pengajuan-list', [
             'dataUser' => User::find(auth()->user()->user_id),
             'pengajuan' => Permohonan::join('user', 'user.user_id', '=', 'permohonan.user_id')->where('permohonan.user_id', auth()->user()->user_id)->orderBy('permohonan.created_at', 'desc')->paginate(10),
+            'pageTitle' => 'SILONTAR | List Pengajuan',
+            'page' => 'pengajuan',
         ]);
     }
 
@@ -74,7 +81,7 @@ class UserController extends Controller
 
         Permohonan::create($data);
 
-        return redirect('/')->with('success', 'Pengajuan berhasil dilakukan');
+        return redirect('/pengajuan/list')->with('success', 'Pengajuan berhasil dilakukan');
     }
     public function profil()
     {

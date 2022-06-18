@@ -242,7 +242,7 @@
                                                             Cek
                                                             Status</button>
                                                         @if (PermohonanDetail::getDetailById($r->permohonan_id) == true)
-                                                            @if (PermohonanDetail::getDetail($r->permohonan_id)->lengkapi_berkas == 'Tidak Sesuai BA')
+                                                            @if (PermohonanDetail::getDetail($r->permohonan_id)->lengkapi_berkas != null)
                                                                 @php
                                                                     $detail = PermohonanDetail::getDetail($r->permohonan_id);
                                                                 @endphp
@@ -441,6 +441,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->permohonan != null ? 'Proses: 1 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -464,6 +465,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->nota_dinas != null ? 'Proses: 2 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -491,6 +493,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->disposisi != null ? 'Proses: 2 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -514,6 +517,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->undangan != null ? 'Proses: 2 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -540,6 +544,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->ba != null ? 'Proses: 4 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -562,6 +567,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->ba_survey != null ? 'Proses: 1 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -591,6 +597,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->kab != null ? 'Proses: 1 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -619,6 +626,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->izin_prinsip != null ? 'Proses: 1 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -642,6 +650,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->lengkapi_berkas != null ? 'Proses: 1 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -665,6 +674,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->rekom_teknis != null ? 'Proses: 1 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -688,6 +698,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->surat_ijin != null ? 'Proses: 1 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -714,6 +725,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->surat_mulai_kerja != null ? 'Proses: 1 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -737,6 +749,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
+                                                                                                {{ $detailGet->kpknl != null ? 'Proses: 1 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -753,8 +766,8 @@
                                                                         <h5><b>Dalam Proses</b></h5>
                                                                         <span>Mohon tunggu, permohonan sementara diproses
                                                                             oleh
-                                                                            admin, jika proses tidak direspon dalam waktu 5
-                                                                            hari
+                                                                            admin, jika proses tidak direspon dalam waktu
+                                                                            <b>2 hari</b>
                                                                             kerja silahkan hubungi admin</span>
                                                                     </div>
                                                                 @endif
