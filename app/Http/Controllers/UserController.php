@@ -6,6 +6,8 @@ use App\Models\Permohonan;
 use App\Models\PermohonanDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -93,8 +95,28 @@ class UserController extends Controller
     }
     public function profil()
     {
-        return view('profil');
+        return view('profil', [
+            'dataUser' => User::find(auth()->user()->user_id),
+            'pageTitle' => 'SILONTAR | Profil',
+            'page' => 'profil',
+        ]);
     }
+
+    public function ubahPassword(Request $request)
+    {
+        // auth()->user()->password == Hash::make($request->input('pasword-lama'))
+        if (Auth::validate(['email' => auth()->user()->email, 'password' => $request->input('password-lama')])) {
+
+
+            $data = [
+                'password' => Hash::make($request->input('password-baru')),
+            ];
+            User::find(auth()->user()->user_id)->update($data);
+            return redirect('/profil')->with('success', 'Password berhasil diubah');
+        }
+        return redirect('/profil')->with('error', 'Password lama anda salah');
+    }
+
     public function mulaiKerjaUpload(Request $request, $id)
     {
         $temp_berkas = $request->file('berkas')->getPathName();
