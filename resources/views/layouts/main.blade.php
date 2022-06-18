@@ -69,7 +69,7 @@
                     @endcanany
                     <li>
                         @canany(['user'])
-                        <li><a class="nav-link scrollto" href="/pengajuan">PENGAJUAN</a></li>
+                        <li><a class="nav-link scrollto" href="/pengajuan/list">PENGAJUAN</a></li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -152,7 +152,8 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>SILONTAR</span></strong>. BALAI PELAKSANAAN JALAN NASIONAL NUSA TENGGARA TIMUR
+                &copy; Copyright <strong><span>SILONTAR</span></strong>. BALAI PELAKSANAAN JALAN NASIONAL NUSA TENGGARA
+                TIMUR
             </div>
             <div class="credits">
                 Designed by: ESC17
