@@ -14,6 +14,7 @@
     <!-- Nucleo Icons -->
     <link href="/admin/assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="/admin/assets/css/nucleo-svg.css" rel="stylesheet" />
+
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="/admin/assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -52,7 +53,7 @@
                     <a class="nav-link " href="/admin/user">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                            <i class="ni ni-circle-08 text-warning text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">User</span>
                     </a>
@@ -67,10 +68,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/admin/pages/rtl.html">
+                    <a class="nav-link " href="/admin/cetak_laporan">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
+                            <i class="ni ni-folder-17 text-primary text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Cetak Laporan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/admin/profil">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-key-25 text-secondary text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Admin</span>
                     </a>

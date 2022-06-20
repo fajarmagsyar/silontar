@@ -6,6 +6,7 @@
         
         <div class="col-6 mt-4 mb-4">
             <p class="spaan"> Data Profil</p><br>
+            <form action="">
             <label class="form-label">Nama Perusahaan:</label>
                 <input type="text" class="form-control text-dark"value="{{ $dataUser->nama_perusahaan }}" 
                 style="font-size: 14px"readonly>
@@ -21,6 +22,7 @@
                 <label class="form-label">Email:</label>
                 <input type="text" class="form-control text-dark"value="{{ $dataUser->email }}" 
                 style="font-size: 14px"readonly>
+            </form>
         </div>
         <div class="col-6 mt-4 mb-4">
             <p class="ubah"> Ubah Password</p> <br>
@@ -31,19 +33,15 @@
             <div class="alert alert-danger text-center">{{ session('error') }}</div>
             @endif
             
-            <div class="ubah-pass">
             <form action="/profil/ubahpassword" method="post">
                 @csrf
-                <label class="form-label">password Lama:</label>
+                <label class="form-label">Password Lama:</label>
                 <input type="password" name="password-lama" class="form-control text-dark" placeholder="Masukan password lama anda" style="font-size: 14px" >
             <label class="form-label">Password Baru:</label>
                 <input type="password" name="password-baru" class="form-control text-dark" placeholder="Masukan password yang belum digunakan" style="font-size: 14px" >
-                <label class="form-label">Konfirmasi password:</label>
-                <input type="password" class="form-control text-dark" placeholder="Masukan kembali password untuk mengkonfirmasi pembaruan password"style="font-size: 14px" >
                 
                 <button type="submit" class="btn btn-info">Ubah Password</button>
             </form>
-            </div>
         </div>
     </div>
 

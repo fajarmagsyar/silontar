@@ -2,42 +2,28 @@
 @section('content')
 
 <div class="container-fluid py-4">
-
-    <div class="row mt-4">
-        <div class="col-lg-12 mb-lg-0 mb-4">
-            <div class="card ">
-                <div class="card-header pb-0 p-3">
-                    <div class="d-flex justify-content-between">
-                        <h6 class="mb-2">DATA USER</h6>
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <table class="table align-items-center ">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Nama</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Email</p>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-sm">
-                                    <div class="col text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Password</p>
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
+<div class="card ">
+        <div class="card-header pb-0 p-3">
+            <div class="d-flex justify-content-between">
+                <h6 class="mb-2">PROFIL ADMIN</h6>
             </div>
         </div>
-
+    <div class="row">
+        <div class="col-2 mb-2 mt-3 ml-5"><img src="/assets/img/Logo.png" width="100%" height="170px" alt=""></div>
+            <div class="col-5 mb-2 mt-3">
+                <form action="">
+                     <span class="">Data Admin</span><br>
+                        <label class="form-label">Nama:</label>
+                            <input type="text" class="form-control text-dark mr-3   "value="{{ $dataUser->nama }}" 
+                            style="font-size: 14px"readonly>
+                        <label class="form-label">Email:</label>
+                            <input type="text" class="form-control text-dark"value="{{ $dataUser->email }}" 
+                            style="font-size: 14px"readonly>
+                </form>
+            </div>
+            <div class="col-5 mb-2 mt-3 "></div>
     </div>
+</div>
+</div>
 
     @endsection('content')
