@@ -32,7 +32,7 @@ Route::get('/reset-password/{token}', [AuthController::class, 'resetForm']);
 Route::get('/verifikasi-akun', [AuthController::class, 'verifikasiTokenPage']);
 Route::get('/kirim-token', [AuthController::class, 'kirimToken']);
 Route::post('/profil/ubahpassword', [UserController::class, 'ubahPassword']);
-Route::get('/profil', [AuthController::class, 'profil']);
+Route::get('/profil', [UserController::class, 'profil']);
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::post('/uploadSurat/{id}', [UserController::class, 'mulaiKerjaUpload']);
 Route::post('/uploadBerkas/{id}', [UserController::class, 'berkasUpload']);
@@ -50,4 +50,5 @@ Route::prefix('admin')->group(function () {
     Route::get('/profil', [AdminController::class, 'profil']);
     Route::post('/pengajuan/detail/{id}/komentar', [AdminController::class, 'komentarSimpan']);
     Route::get('/export/excel', [AdminController::class, 'exportExcel']);
+    Route::get('/cetak_laporan', [AdminController::class, 'cetak_laporan']);
 });

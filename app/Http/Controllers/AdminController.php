@@ -77,8 +77,16 @@ class AdminController extends Controller
     }
     public function profil()
     {
-        return view('admin.profil');
+        return view('admin.profil', [
+            'dataUser' => User::find(auth()->user()->user_id),
+        ]);
     }
+
+    public function cetak_laporan()
+    {
+        return view('admin.cetak_laporan');
+    }
+
     public function edituser()
     {
         return view('admin.edituser');
