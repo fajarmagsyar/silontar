@@ -17,8 +17,12 @@ class Permohonan extends Migration
         Schema::create('permohonan', function (Blueprint $table) {
             $table->integer('permohonan_id')->autoIncrement();
             $table->string('user_id');
+            $table->string('jenis_permohonan');
+            $table->string('kode');
             $table->string('surat_permohonan');
+            $table->string('surat_permohonan_no');
             $table->string('surat_pernyataan');
+            $table->string('surat_pernyataan_no');
             $table->string('ktp');
             $table->string('npwp');
             $table->string('kswp');
@@ -28,6 +32,7 @@ class Permohonan extends Migration
             $table->string('gambar_lokasi');
             $table->string('gambar_konstruksi');
             $table->string('jadwal_pelaksanaan');
+            $table->string('jadwal_pelaksanaan_b');
             $table->timestamps();
         });
     }

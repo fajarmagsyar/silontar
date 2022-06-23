@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PengajuanExport;
 use App\Models\Permohonan;
 use App\Models\PermohonanDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -102,5 +104,9 @@ class AdminController extends Controller
     public function dokumen()
     {
         return view('admin.dokumen');
+    }
+    public function exportExcel()
+    {
+        return Excel::download(new PengajuanExport, 'Permohonan Detail.xlsx');
     }
 }
