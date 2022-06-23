@@ -13,10 +13,10 @@ class Berkas extends Migration
      */
     public function up()
     {
-        Schema::create('', function (Blueprint $table) {
+        Schema::create('berkas', function (Blueprint $table) {
             $table->integer('berkas_id')->autoIncrement();
-            $table->string('path');
-            $table->string('keterangan');
+            $table->string('path')->nullable();
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

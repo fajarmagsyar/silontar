@@ -16,23 +16,23 @@ class Permohonan extends Migration
         //
         Schema::create('permohonan', function (Blueprint $table) {
             $table->integer('permohonan_id')->autoIncrement();
-            $table->string('user_id');
-            $table->string('jenis_permohonan');
-            $table->string('kode');
-            $table->string('surat_permohonan');
-            $table->string('surat_permohonan_no');
-            $table->string('surat_pernyataan');
-            $table->string('surat_pernyataan_no');
-            $table->string('ktp');
-            $table->string('npwp');
-            $table->string('kswp');
-            $table->string('nib');
-            $table->string('siup');
-            $table->string('akta_perusahaan');
-            $table->string('gambar_lokasi');
-            $table->string('gambar_konstruksi');
-            $table->string('jadwal_pelaksanaan');
-            $table->string('jadwal_pelaksanaan_b');
+            $table->string('user_id')->nullable();
+            $table->string('jenis_permohonan')->nullable();
+            $table->string('kode')->nullable();
+            $table->string('surat_permohonan')->nullable();
+            $table->string('surat_permohonan_no')->nullable();
+            $table->string('surat_pernyataan')->nullable();
+            $table->string('surat_pernyataan_no')->nullable();
+            $table->string('ktp')->nullable();
+            $table->string('npwp')->nullable();
+            $table->string('kswp')->nullable();
+            $table->string('nib')->nullable();
+            $table->string('siup')->nullable();
+            $table->string('akta_perusahaan')->nullable();
+            $table->string('gambar_lokasi')->nullable();
+            $table->string('gambar_konstruksi')->nullable();
+            $table->string('jadwal_pelaksanaan')->nullable();
+            $table->string('jadwal_pelaksanaan_b')->nullable();
             $table->timestamps();
         });
     }
