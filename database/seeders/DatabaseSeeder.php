@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'alamat_perusahaan' => 'Jln. Sis',
             'lokasi_permohonan' => 'Jln. Sis',
             'role' => 'user',
+            'token' => '0',
         ]);
         User::create([
             'nama' => 'Kucing Admin',
@@ -34,6 +35,7 @@ class DatabaseSeeder extends Seeder
             'alamat_perusahaan' => 'Jln. Sis',
             'lokasi_permohonan' => 'Jln. Sis',
             'role' => 'admin',
+            'token' => '0',
         ]);
     }
 }

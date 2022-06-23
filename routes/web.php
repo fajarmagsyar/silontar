@@ -49,4 +49,5 @@ Route::prefix('admin')->group(function () {
     Route::post('/pengajuan/detail/{id}/update', [AdminController::class, 'pengajuanDetailUpdate']);
     Route::get('/profil', [AdminController::class, 'profil']);
     Route::post('/pengajuan/detail/{id}/komentar', [AdminController::class, 'komentarSimpan']);
+    Route::get('/export/excel', [AdminController::class, 'exportExcel']);
 });
