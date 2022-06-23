@@ -101,6 +101,10 @@ class AdminController extends Controller
 
         return redirect('/admin/pengajuan/detail/' . $id);
     }
+    public function dokumen()
+    {
+        return view('admin.dokumen');
+    }
     public function exportExcel()
     {
         return Excel::download(new PengajuanExport, 'Permohonan Detail.xlsx');

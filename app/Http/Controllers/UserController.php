@@ -162,4 +162,11 @@ class UserController extends Controller
 
         return redirect('/pengajuan/list')->with('success', 'Surat Mulai Kerja berhasil di upload');
     }
+    public function dokumen()
+    {
+        return view('dokumen', [
+            'pageTitle' => 'SILONTAR | Dokumen',
+            'page' => 'dokumen',
+        ]);
+    }
 }
