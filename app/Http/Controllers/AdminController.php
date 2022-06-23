@@ -99,4 +99,8 @@ class AdminController extends Controller
 
         return redirect('/admin/pengajuan/detail/' . $id);
     }
+    public function dokumen()
+    {
+        return view('admin.dokumen');
+    }
 }

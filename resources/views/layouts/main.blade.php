@@ -59,6 +59,7 @@
                     <li><a class="nav-link scrollto {{ $page == 'beranda' ? 'active' : '' }}"
                             href="/">BERANDA</a></li>
                     <li><a class="nav-link scrollto" href="/#panduan">PANDUAN UMUM</a></li>
+                    <li><a class="nav-link scrollto" href="/dokumen">DOKUMEN</a></li>
                     <li><a class="nav-link scrollto" href="/#tentang">TENTANG</a></li>
                     <li><a class="nav-link scrollto" href="/#kontak">KONTAK</a></li>
                     @guest
