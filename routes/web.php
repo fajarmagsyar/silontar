@@ -36,7 +36,7 @@ Route::get('/profil', [UserController::class, 'profil']);
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::post('/uploadSurat/{id}', [UserController::class, 'mulaiKerjaUpload']);
 Route::post('/uploadBerkas/{id}', [UserController::class, 'berkasUpload']);
-Route::get('/dokumen', [UserController::class, 'dokumen']);
+Route::get('/faq', [UserController::class, 'faq']);
 
 
 Route::prefix('admin')->group(function () {
@@ -53,4 +53,5 @@ Route::prefix('admin')->group(function () {
     Route::get('/export/excel', [AdminController::class, 'exportExcel']);
     Route::get('/cetak_laporan', [AdminController::class, 'cetak_laporan']);
     Route::get('/dokumen', [AdminController::class, 'dokumen']);
+    Route::post('/dokumen/store', [AdminController::class, 'dokumenStore']);
 });
