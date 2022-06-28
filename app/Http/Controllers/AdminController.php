@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\PengajuanExport;
 use App\Models\Permohonan;
+use App\Models\Berkas;
 use App\Models\PermohonanDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ class AdminController extends Controller
             'pengajuan' => $pengajuan,
         ]);
     }
+
     public function pengajuanDetail($id)
     {
         $pengajuan = Permohonan::join('user', 'user.user_id', 'permohonan.user_id')->where('permohonan.permohonan_id', $id)->first();
@@ -46,6 +48,7 @@ class AdminController extends Controller
 
         return redirect('/admin/pengajuan/detail/' . $id)->with('success', 'yes');
     }
+
     public function pengajuanDetailTolak($id)
     {
         date_default_timezone_set("Asia/Makassar");
@@ -101,11 +104,40 @@ class AdminController extends Controller
 
         return redirect('/admin/pengajuan/detail/' . $id);
     }
+
     public function dokumen()
     {
-        return view('admin.dokumen');
+        $berkas = Berkas::where('berkas.berkas_id', auth()->user()->user_id)->orderBy('berkas.created_at', 'desc')->paginate(10);
+        return view('admin.dokumen', [
+            'dataUser' => User::find(auth()->user()->user_id),
+            'berkas' => $berkas
+        ]);
     }
-    public function exportExcel(Request $request)
+    public function dokumenStore(Request $request)
+    {
+        $berkas = ['path', 'keterangan'];
+        // dd($request->file('npwp'));
+        foreach ($berkas as $key => $r) {
+            $temp_berkas = $request->file($r)->getPathName();
+            $file_berkas = '-' . $r . time();
+            $folder_berkas = "unggah/berkas-dokumen/" . $file_berkas . ".pdf";
+            move_uploaded_file($temp_berkas, $folder_berkas);
+            $berkas[$key] = '/unggah/berkas-dokumen/' . $file_berkas . '.pdf';
+        }
+
+        $data = [
+            'path' => $berkas[0],
+            'keterangan' => $berkas[1],
+            'berkas_id' => auth()->user()->user_id,
+        ];
+
+        Berkas::create($data);
+
+        return redirect('/admin/dokumen/')->with('success', 'Berkas berhasil di upload!');
+    }
+
+
+    public function exportExcel()
     {
         return Excel::download(new PengajuanExport, 'Permohonan Detail.xlsx');
     }
