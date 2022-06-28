@@ -100,28 +100,4 @@
 
         </div>
     </section><!-- End Services Section -->
-
-
-    <section id="tentang" class="tentang">
-        <div class="container" data-aos="fade-up">
-
-
-            <div class="section-title">
-                <h2>TENTANG KAMI</h2>
-            </div>
-            
-
-        </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= About Section ======= -->
-    <section id="kontak" class="kontak">
-        <div class="container" data-aos="fade-up">
-
-
-            <div class="section-title">
-                <h2>HUBUNGI KAMI</h2>
-            </div>
-            
-    </section><!-- End About Section -->
     @endsection('konten')

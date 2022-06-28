@@ -13,24 +13,22 @@
             <button class="tablinks" onmouseover="openCity(event, 'tentang')">Tentang Kami</button>
             <button class="tablinks" onmouseover="openCity(event, 'kontak')">Kontak</button>
           </div>
-          
+        @foreach ($berkas as $r)
+            
           <div id="dokumen" class="tabcontent">
-            <button class="accordion mt-4">Berkas 1 <i class="bi bi-plus-circle-fill"></i></button>
+            <button class="accordion mt-4">Surat Permohonan<i class="bi bi-plus-circle-fill"></i></button>
             <div class="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>Contoh format surat permohonan dapat di unduh <a href="{{ $r->path }}"></i>disini!</a>
+              </p>
             </div>
             
-            <button class="accordion">Berkas 2 <i class="bi bi-plus-circle-fill"></i></button>
+            <button class="accordion">Surat Pernyataan <i class="bi bi-plus-circle-fill"></i></button>
             <div class="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            
-            <button class="accordion">berkas 3 <i class="bi bi-plus-circle-fill"></i></button>
-            <div class="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>Contoh format surat Pernyataan dapat di unduh <a href="{{ $r->keterangan  }}"></i>disini!</a>
+              </p>
             </div>
           </div>
-          
+          @endforeach
           <div id="tentang" class="tabcontent">
             <div class="container mt-2">
             <p class="text-justify mt-4">
@@ -70,6 +68,7 @@
                     </div>
                 </div>
 
+                
             </div>
           </div>
 

@@ -58,8 +58,8 @@
                 <ul>
                     <li><a class="nav-link scrollto {{ $page == 'beranda' ? 'active' : '' }}"
                             href="/">BERANDA</a></li>
-                    <li><a class="nav-link scrollto" href="/#panduan">PANDUAN UMUM</a></li>
-                    <li><a class="nav-link scrollto" href="/dokumen">FAQ</a></li>
+                    <li><a class="nav-link scrollto {{ $page == 'panduan' ? 'active' : '' }}" href="/#panduan">PANDUAN UMUM</a></li>
+                    <li><a class="nav-link scrollto {{ $page == 'faq' ? 'active' : '' }}" href="/faq">FAQ</a></li>
                     @guest
                         <li><a class="nav-link scrollto" href="/login">LOGIN</a></li>
 
