@@ -153,11 +153,11 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>SILONTAR</span></strong>. BALAI PELAKSANAAN JALAN NASIONAL NUSA TENGGARA
-                TIMUR
+                &copy; Copyright <strong><span>SILONTAR</span></strong>.
             </div>
             <div class="credits">
-                Designed by: ESC17
+                BALAI PELAKSANAAN JALAN NASIONAL NUSA TENGGARA
+                TIMUR
             </div>
         </div>
     </footer><!-- End Footer -->

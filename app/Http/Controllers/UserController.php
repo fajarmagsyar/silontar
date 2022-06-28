@@ -39,6 +39,7 @@ class UserController extends Controller
             'dataUser' => User::find(auth()->user()->user_id),
             'pageTitle' => 'SILONTAR | Pengajuan',
             'page' => 'pengajuan',
+            'berkas' => Berkas::get(),
         ]);
     }
 

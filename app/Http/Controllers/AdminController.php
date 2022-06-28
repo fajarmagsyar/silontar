@@ -9,18 +9,25 @@ use App\Models\PermohonanDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
     public function beranda()
     {
-        return view('admin.beranda');
+        return view('admin.beranda', [
+            'pageTitle' => 'SILONTAR | Admin Beranda',
+            'page' => 'Beranda',
+            'permohonan' => Permohonan::get(),
+        ]);
     }
     public function pengajuan()
     {
         $pengajuan = Permohonan::join('user', 'user.user_id', 'permohonan.user_id')->leftJoin('permohonan_detail', 'permohonan.permohonan_id', '=', 'permohonan_detail.permohonan_id')->get(['user.*', 'permohonan.*', 'permohonan_detail.permohonan']);
         // dd($pengajuan);
         return view('admin.pengajuan', [
+            'pageTitle' => 'SILONTAR | Admin Pengajuan',
+            'page' => 'Pengajuan',
             'pengajuan' => $pengajuan,
         ]);
     }
@@ -29,6 +36,8 @@ class AdminController extends Controller
     {
         $pengajuan = Permohonan::join('user', 'user.user_id', 'permohonan.user_id')->where('permohonan.permohonan_id', $id)->first();
         return view('admin.pengajuan-detail', [
+            'pageTitle' => 'SILONTAR | Admin Detail',
+            'page' => 'Pengajuan Detail',
             'pengajuan' => $pengajuan,
             'pd' => PermohonanDetail::where('permohonan_id', $id)->first(),
         ]);
@@ -75,19 +84,26 @@ class AdminController extends Controller
     {
         $user = User::where('role', 'user')->get();
         return view('admin.user', [
+            'pageTitle' => 'SILONTAR | Admin User',
+            'page' => 'User',
             'user' => $user,
         ]);
     }
     public function profil()
     {
         return view('admin.profil', [
+            'pageTitle' => 'SILONTAR | Admin Profil',
+            'page' => 'Profil',
             'dataUser' => User::find(auth()->user()->user_id),
         ]);
     }
 
     public function cetak_laporan()
     {
-        return view('admin.cetak_laporan');
+        return view('admin.cetak_laporan', [
+            'pageTitle' => 'SILONTAR | Admin Cetak Laporan',
+            'page' => 'Cetak Laporan',
+        ]);
     }
 
     public function edituser()
@@ -109,6 +125,8 @@ class AdminController extends Controller
     {
         $berkas = Berkas::where('berkas.berkas_id', auth()->user()->user_id)->orderBy('berkas.created_at', 'desc')->paginate(10);
         return view('admin.dokumen', [
+            'pageTitle' => 'SILONTAR | Admin Dokumen',
+            'page' => 'Dokumen',
             'dataUser' => User::find(auth()->user()->user_id),
             'berkas' => $berkas
         ]);

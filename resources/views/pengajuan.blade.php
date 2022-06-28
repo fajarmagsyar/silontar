@@ -59,19 +59,32 @@
                                         <h5>Syarat Administrasi</h5>
                                         <hr>
                                     </div>
+                                    @foreach($berkas as $r)
                                     <div class="col-6">
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">Surat Permohonan:</label>
                                             <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
                                                 name="surat_permohonan" style="font-size: 15px"
                                                 aria-describedby="emailHelp">
+                                                <p class="text">Contoh surat permohonan dapat dilihat<a href="{{ $r->path }}"> disini!</a></p>
                                         </div>
+                                    </div>
+                                    <div class="col-6">
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">Surat Pernyataan:</label>
                                             <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
                                                 name="surat_pernyataan" style="font-size: 15px"
                                                 aria-describedby="emailHelp">
+                                            <p class="text">Contoh surat Pernyataan dapat dilihat<a href="{{ $r->keterangan }}"> disini!</a></p>
                                         </div>
+                                    </div>
+                                        @endforeach
+                                        
+                                    <div class="mb-3 mt-4 text-center">
+                                        <h5>Kelengkapan Pengajuan</h5>
+                                        <hr>
+                                    </div>
+                                    <div class="col-6">
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">KTP:</label>
                                             <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
@@ -82,13 +95,14 @@
                                             <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
                                                 name="npwp" style="font-size: 15px" aria-describedby="emailHelp">
                                         </div>
-                                    </div>
-                                    <div class="col-6">
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">KSWP:</label>
                                             <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
                                                 name="kswp" style="font-size: 15px" aria-describedby="emailHelp">
                                         </div>
+                                    </div>
+                                    
+                                    <div class="col-6">
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">NIB:</label>
                                             <input type="file" accept=".pdf" id="exampleInputEmail1"
