@@ -53,7 +53,14 @@ class AdminController extends Controller
         move_uploaded_file($temp_berkas, $folder_berkas);
         $berkas = '/unggah/permohonan-detail/' . $file_berkas . '.pdf';
 
-        PermohonanDetail::where('permohonan_id', $id)->update([$jenis => $berkas, $jenis . '_date' => date('d-m-Y H:i:s')]);
+        $data[$jenis] = $berkas;
+        $data[$jenis . '_date'] = date('d-m-Y H:i:s');
+
+        if ($req->input('no_surat')) {
+            $data[$jenis . '_no'] = $req->input('no_surat');
+        }
+
+        PermohonanDetail::where('permohonan_id', $id)->update($data);
 
         return redirect('/admin/pengajuan/detail/' . $id)->with('success', 'yes');
     }
@@ -131,6 +138,7 @@ class AdminController extends Controller
             'berkas' => $berkas
         ]);
     }
+
     public function dokumenStore(Request $request)
     {
         $berkas = ['path', 'keterangan'];
@@ -155,8 +163,8 @@ class AdminController extends Controller
     }
 
 
-    public function exportExcel()
+    public function exportExcel(Request $req)
     {
-        return Excel::download(new PengajuanExport, 'Permohonan Detail.xlsx');
+        return Excel::download(new PengajuanExport($req->query('tahun'), $req->query('bulan')), 'Permohonan Detail Bulan ' . $req->query('bulan') . ' Tahun ' . $req->query('tahun') . '.xlsx');
     }
 }

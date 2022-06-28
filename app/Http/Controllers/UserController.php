@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -56,9 +57,10 @@ class UserController extends Controller
 
     public function pengajuanStore(Request $request)
     {
+        $expl = explode('to', $request->input('jadwal_pelaksanaan'));
         $administrasi = ['surat_permohonan', 'surat_pernyataan', 'ktp', 'npwp', 'kswp', 'nib', 'siup', 'akta_perusahaan'];
         $teknis = ['gambar_lokasi', 'gambar_konstruksi'];
-        // dd($request->file('npwp'));
+
         foreach ($administrasi as $key => $r) {
             $temp_berkas = $request->file($r)->getPathName();
             $file_berkas = auth()->user()->user_id . '-' . $r . time();
@@ -77,6 +79,8 @@ class UserController extends Controller
         }
 
         $data = [
+            'jenis_permohonan' => $request->input('jenis_permohonan'),
+            'kode' => Str::random(6),
             'surat_permohonan' => $berkas[0],
             'surat_pernyataan' => $berkas[1],
             'ktp' => $berkas[2],
@@ -87,7 +91,8 @@ class UserController extends Controller
             'akta_perusahaan' => $berkas[7],
             'gambar_lokasi' => $foto[0],
             'gambar_konstruksi' => $foto[1],
-            'jadwal_pelaksanaan' => $request->input('jadwal_pelaksanaan'),
+            'jadwal_pelaksanaan' => $expl[0],
+            'jadwal_pelaksanaan_b' => $expl[1],
             'user_id' => auth()->user()->user_id,
         ];
 

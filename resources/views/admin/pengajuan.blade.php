@@ -23,17 +23,22 @@
                                     </td>
                                     <td>
                                         <div class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Perusahaan</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-center">
                                             <p class="text-xs font-weight-bold mb-0">Data Pemohon</p>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Berkas</p>
+                                            <p class="text-xs font-weight-bold mb-0">Kode</p>
                                         </div>
                                     </td>
                                     <td class="align-middle text-sm">
                                         <div class="col text-center">
-                                            <p class="text-xs font-weight-bold mb-0">Gambar</p>
+                                            <p class="text-xs font-weight-bold mb-0">Jenis Permohonan</p>
                                         </div>
                                     </td>
                                     <td class="align-middle text-sm">
@@ -54,100 +59,33 @@
                                                 </div>
                                             </td>
                                             <td>
+                                                {{ $r->nama_perusahaan }}
+                                            </td>
+                                            <td>
                                                 <ol class="list-group list-group">
                                                     <li
                                                         class="list-group-item d-flex justify-content-between align-items-start">
                                                         <div class="ms-2 me-auto">
-                                                            <div class="fw-bold text-center text-dark py-2">
-                                                                <span
-                                                                    class="badge bg-primary">{{ $r->nama_perusahaan }}</span>
-                                                            </div>
                                                             <div class="fw-bold">Nama Direktur</div>
                                                             {{ $r->nama_direktur }}
                                                             <br>
                                                             <div class="fw-bold">Alamat Perusahaan</div>
                                                             {{ $r->alamat_perusahaan }}
-                                                            <br>
-                                                            <div class="fw-bold">Lokasi Permohonan</div>
-                                                            {{ $r->lokasi_permohonan }}
-                                                            <div class="fw-bold">Jadwal Pelaksanaan</div>
-                                                            {{ $r->jadwal_pelaksanaan }}
                                                         </div>
                                                     </li>
                                                 </ol>
                                             </td>
-                                            <td>
-                                                <div class="ms-4">
-                                                    <h6 class="text-sm mb-0">
-                                                    </h6>
-                                                    <ul class="list-group list-group-horizontal">
-                                                        <li class="list-group-item text-center" style="width: 200px"><a
-                                                                href="{{ $r->surat_permohonan }}"><i
-                                                                    class="ni ni-cloud-download-95 float-start"></i> Surat
-                                                                Permohonan</a>
-                                                        </li>
-                                                        <li class="list-group-item text-center" style="width: 200px"><a
-                                                                href="{{ $r->surat_pernyataan }}"><i
-                                                                    class="ni ni-cloud-download-95 float-start"></i> Surat
-                                                                Pernyataan</a>
-                                                        </li>
-                                                    </ul>
-                                                    <ul class="list-group list-group-horizontal-sm">
-                                                        <li class="list-group-item text-center" style="width: 200px"><a
-                                                                href="{{ $r->ktp }}"><i
-                                                                    class="ni ni-cloud-download-95 float-start"></i> KTP</a>
-                                                        </li>
-                                                        <li class="list-group-item text-center" style="width: 200px"><a
-                                                                href="{{ $r->npwp }}"><i
-                                                                    class="ni ni-cloud-download-95 float-start"></i>
-                                                                NPWP</a>
-                                                        </li>
-                                                    </ul>
-                                                    <ul class="list-group list-group-horizontal-md">
-                                                        <li class="list-group-item text-center" style="width: 200px"><a
-                                                                href="{{ $r->kswp }}"><i
-                                                                    class="ni ni-cloud-download-95 float-start"></i>
-                                                                KSWP</a>
-                                                        </li>
-                                                        <li class="list-group-item text-center" style="width: 200px"><a
-                                                                href="{{ $r->nib }}"><i
-                                                                    class="ni ni-cloud-download-95 float-start"></i> NIB</a>
-                                                        </li>
-                                                    </ul>
-                                                    <ul class="list-group list-group-horizontal-lg">
-                                                        <li class="list-group-item text-center" style="width: 200px"><a
-                                                                href="{{ $r->siup }}"><i
-                                                                    class="ni ni-cloud-download-95 float-start"></i>
-                                                                SIUP</a>
-                                                        </li>
-                                                        <li class="list-group-item text-center" style="width: 200px"><a
-                                                                href="{{ $r->akta_perusahaan }}"><i
-                                                                    class="ni ni-cloud-download-95 float-start"></i> Akta
-                                                                Perusahaan</a>
-                                                        </li>
-                                                    </ul>
-
-                                                </div>
+                                            <td class="text-center">
+                                                <i><code>{{ $r->kode }}</code></i>
                                             </td>
 
-                                            <td class="align-middle text-sm">
-                                                <div class="col">
-                                                    <h6 class="text-sm mb-0">Gambar Lokasi</h6>
-                                                    <a href="{{ $r->gambar_lokasi }}">
-                                                        <img src="{{ $r->gambar_lokasi }}" width="100px" alt="">
-                                                    </a>
-                                                    <h6 class="text-sm mb-0 mt-3">Gambar Konstruksi</h6>
-                                                    <a href="{{ $r->gambar_konstruksi }}">
-                                                        <img src="{{ $r->gambar_konstruksi }}" width="100px"
-                                                            alt="">
-                                                    </a>
-                                                </div>
+                                            <td class="align-middle text-center">
+                                                <span class="badge bg-primary">{{ $r->jenis_permohonan }}</span>
                                             </td>
                                             <td class="align-middle text-sm">
                                                 <div class="col text-center">
                                                     <a href="/admin/pengajuan/detail/{{ $r->permohonan_id }}"
                                                         class="btn btn-info"><i class="ni ni-app"></i> <br> Detail
-                                                        Status
                                                     </a>
                                                     <br>
                                                     @if ($r->permohonan == null)

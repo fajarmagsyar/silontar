@@ -90,7 +90,8 @@
                                                                     <div class="fw-bold">Lokasi Permohonan</div>
                                                                     {{ $r->lokasi_permohonan }}
                                                                     <div class="fw-bold">Jadwal Pelaksanaan</div>
-                                                                    {{ $r->jadwal_pelaksanaan }}
+                                                                    {{ $r->jadwal_pelaksanaan }} <code>s/d</code>
+                                                                    {{ $r->jadwal_pelaksanaan_b }}
                                                                 </div>
                                                             </li>
                                                         </ol>

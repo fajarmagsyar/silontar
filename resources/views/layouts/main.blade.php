@@ -58,7 +58,8 @@
                 <ul>
                     <li><a class="nav-link scrollto {{ $page == 'beranda' ? 'active' : '' }}"
                             href="/">BERANDA</a></li>
-                    <li><a class="nav-link scrollto {{ $page == 'panduan' ? 'active' : '' }}" href="/#panduan">PANDUAN UMUM</a></li>
+                    <li><a class="nav-link scrollto {{ $page == 'panduan' ? 'active' : '' }}" href="/#panduan">PANDUAN
+                            UMUM</a></li>
                     <li><a class="nav-link scrollto {{ $page == 'faq' ? 'active' : '' }}" href="/faq">FAQ</a></li>
                     @guest
                         <li><a class="nav-link scrollto" href="/login">LOGIN</a></li>
@@ -180,6 +181,15 @@
     <script>
         $('document').ready(function() {
             $(".fp").flatpickr();
+        });
+    </script>
+    <script>
+        $('document').ready(function() {
+            $("#flatrange").flatpickr({
+                mode: "range",
+                minDate: "today",
+                dateFormat: "Y-m-d",
+            });
         });
     </script>
 
