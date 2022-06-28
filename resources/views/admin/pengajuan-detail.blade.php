@@ -50,8 +50,11 @@
                                                     <br>
                                                     <div class="fw-bold">Lokasi Permohonan</div>
                                                     {{ $pengajuan->lokasi_permohonan }}
+                                                    <div class="fw-bold">Jenis Permohonan</div>
+                                                    {{ $pengajuan->jenis_permohonan }}
                                                     <div class="fw-bold">Jadwal Pelaksanaan</div>
-                                                    {{ $pengajuan->jadwal_pelaksanaan }}
+                                                    {{ $pengajuan->jadwal_pelaksanaan }} -
+                                                    {{ $pengajuan->jadwal_pelaksanaan_b }}
                                                 </div>
                                             </li>
                                         </ol>
@@ -113,7 +116,8 @@
                                             </a>
                                             <h6 class="text-sm mb-0 mt-3">Gambar Konstruksi</h6>
                                             <a href="{{ $pengajuan->gambar_konstruksi }}">
-                                                <img src="{{ $pengajuan->gambar_konstruksi }}" width="100px" alt="">
+                                                <img src="{{ $pengajuan->gambar_konstruksi }}" width="100px"
+                                                    alt="">
                                             </a>
                                         </div>
                                     </td>
@@ -141,253 +145,289 @@
                         </div>
                         <div class="card-body">
                             <div class="row px-4">
-                                @if($pd->permohonan == "Kembalikan Berkas")
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <tr>
-                                            <td class="text-start align-middle">Status Permohonan
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->permohonan_date }}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <form
-                                                    action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/update"
-                                                    method="post" name="status_permohonan">
-                                                    @csrf
-                                                    <input type="hidden" name="jenis" value="permohonan">
-                                                    <input type="radio" onchange="statusSubmit()" name="permohonan"
-                                                        value="Setuju"
-                                                        {{ $pd->permohonan == 'Setuju' ? 'checked' : '' }}>
-                                                    Setuju <br>
-                                                    <input type="radio" onchange="statusSubmit()" name="permohonan"
-                                                        value="Kembalikan Berkas"
-                                                        {{ $pd->permohonan == 'Kembalikan Berkas' ? 'checked' : '' }}>
-                                                    Kembalikan
-                                                    Berkas
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <form action="/admin/pengajuan/detail/{{$pengajuan->permohonan_id}}/komentar" method="post">
-                                @csrf
-                                    <div class="mt-1 mb-3">
-                                    Masukkan komentar:
-                                    <textarea name="komentar" class="form-control" id="" cols="30" rows="5" placeholder="{{ ($pd->komentar != null) ? '' : 'Masukkan komentar anda' }}">{{ ($pd->komentar != null) ? $pd->komentar : '' }}</textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary float-end">Kirim</button>
-                                </div>
-                                </form>
-                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->komentar_date }}</span>
+                                @if ($pd->permohonan == 'Kembalikan Berkas')
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <td class="text-start align-middle">Status Permohonan
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->permohonan_date }}</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <form
+                                                        action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/update"
+                                                        method="post" name="status_permohonan">
+                                                        @csrf
+                                                        <input type="hidden" name="jenis" value="permohonan">
+                                                        <input type="radio" onchange="statusSubmit()" name="permohonan"
+                                                            value="Setuju"
+                                                            {{ $pd->permohonan == 'Setuju' ? 'checked' : '' }}>
+                                                        Setuju <br>
+                                                        <input type="radio" onchange="statusSubmit()" name="permohonan"
+                                                            value="Kembalikan Berkas"
+                                                            {{ $pd->permohonan == 'Kembalikan Berkas' ? 'checked' : '' }}>
+                                                        Kembalikan
+                                                        Berkas
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <form action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/komentar"
+                                        method="post">
+                                        @csrf
+                                        <div class="mt-1 mb-3">
+                                            Masukkan komentar:
+                                            <textarea name="komentar" class="form-control" id="" cols="30" rows="5"
+                                                placeholder="{{ $pd->komentar != null ? '' : 'Masukkan komentar anda' }}">{{ $pd->komentar != null ? $pd->komentar : '' }}</textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="submit" class="btn btn-primary float-end">Kirim</button>
+                                        </div>
+                                    </form>
+                                    <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i>
+                                        {{ $pd->komentar_date }}</span>
                                 @else
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <tr>
-                                            <td class="text-start align-middle">Status Permohonan
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->permohonan_date }}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <form
-                                                    action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/update"
-                                                    method="post" name="status_permohonan">
-                                                    @csrf
-                                                    <input type="hidden" name="jenis" value="permohonan">
-                                                    <input type="radio" onchange="statusSubmit()" name="permohonan"
-                                                        value="Setuju"
-                                                        {{ $pd->permohonan == 'Setuju' ? 'checked' : '' }}>
-                                                    Setuju <br>
-                                                    <input type="radio" onchange="statusSubmit()" name="permohonan"
-                                                        value="Kembalikan Berkas"
-                                                        {{ $pd->permohonan == 'Kembalikan Berkas' ? 'checked' : '' }}>
-                                                    Kembalikan
-                                                    Berkas
-                                                </form>
-                                            </td>
-                                            <td class="align-middle">Nota Dinas
-                                                @if ($pd->nota_dinas != null)
-                                                    <a href="{{ $pd->nota_dinas }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->nota_dinas_date }}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#nota_dinas"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-start align-middle">Disposisi
-                                                @if ($pd->disposisi != null)
-                                                    <a href="{{ $pd->disposisi }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->disposisi_date }}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#disposisi"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
-                                            </td>
-                                            <td class="align-middle">Undangan
-                                                @if ($pd->undangan != null)
-                                                    <a href="{{ $pd->undangan }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->undangan_date }}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#undangan"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-start align-middle">Berita Acara
-                                                @if ($pd->ba != null)
-                                                    <a href="{{ $pd->ba }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->ba_date }}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#ba"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
-                                            </td>
-                                            <td class="align-middle">Survey Berita Acara
-                                                @if ($pd->ba_survey != null)
-                                                    <a href="{{ $pd->ba_survey }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->ba_survey_date }}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#ba_survey"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-start align-middle">RAB
-                                                @if ($pd->kab != null)
-                                                    <a href="{{ $pd->kab }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->kab_date }}</span>
-                                                
-                                            </td>
-                                            <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#kab"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
-                                            </td>
-                                            <td class="align-middle">Izin Prinsip
-                                                @if ($pd->izin_prinsip != null)
-                                                    <a href="{{ $pd->izin_prinsip }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->izin_prinsip_date }}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#izin_prinsip"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-start align-middle">Verifikasi Sesuai Permohonan Data Perubahan
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->lengkapi_berkas_date }}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <form
-                                                    action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/update"
-                                                    method="post" name="lengkap">
-                                                    @csrf
-                                                    <input type="hidden" name="jenis" value="lengkapi_berkas">
-                                                    <input type="radio" onclick="submitLengkap()" name="lengkapi_berkas"
-                                                        value="Sesuai BA"
-                                                        {{ $pd->lengkapi_berkas == 'Sesuai BA' ? 'checked' : '' }}>
-                                                    Sesuai BA
-                                                    <br>
-                                                    <input type="radio" onclick="submitLengkap()" name="lengkapi_berkas"
-                                                        value="Tidak Sesuai BA"
-                                                        {{ $pd->lengkapi_berkas == 'Tidak Sesuai BA' ? 'checked' : '' }}>
-                                                    Tidak
-                                                    Sesuai
-                                                    BA
-                                                </form>
-                                            </td>
-                                            <td class="align-middle">Rekomendasi Teknis
-                                                @if ($pd->rekom_teknis != null)
-                                                    <a href="{{ $pd->rekom_teknis }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->rekom_teknis_date }}</span>
-                                                
-                                            </td>
-                                            <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#rekom_teknis"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-start align-middle">Surat Izin
-                                                @if ($pd->surat_ijin != null)
-                                                    <a href="{{ $pd->surat_ijin }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->surat_ijin_date }}</span>
-                                                
-                                            </td>
-                                            <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#surat_ijin"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
-                                            </td>
-                                            <td class="align-middle">Surat Mulai Kerja
-                                                @if ($pd->surat_mulai_kerja != null)
-                                                    <a href="{{ $pd->surat_mulai_kerja }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->surat_mulai_kerja_date }}</span>
-                                                
-                                            </td>
-                                            <td class="align-middle">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-start align-middle">KPKNL
-                                                @if ($pd->kpknl != null)
-                                                    <a href="{{ $pd->kpknl }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->kpknl_date }}</span>
-                                                
-                                            </td>
-                                            <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#kpknl"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
-                                            </td>
-                                            <td class="align-middle">Dirjen BM
-                                                @if ($pd->dirjen_bm != null)
-                                                    <a href="{{ $pd->dirjen_bm }}"><i
-                                                            class="ni ni-cloud-download-95"></i></a>
-                                                @endif
-                                                <br><span class="text-muted text-sm"><i class="ni ni-calendar-grid-58"></i> {{ $pd->dirjen_bm_date }}</span>
-                                                
-                                            </td>
-                                            <td class="align-middle">
-                                                <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#dirjen_bm"><i class="ni ni-cloud-upload-96"></i>
-                                                    Upload</button>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <td class="text-start align-middle">Status Permohonan
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->permohonan_date }}</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <form
+                                                        action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/update"
+                                                        method="post" name="status_permohonan">
+                                                        @csrf
+                                                        <input type="hidden" name="jenis" value="permohonan">
+                                                        <input type="radio" onchange="statusSubmit()" name="permohonan"
+                                                            value="Setuju"
+                                                            {{ $pd->permohonan == 'Setuju' ? 'checked' : '' }}>
+                                                        Setuju <br>
+                                                        <input type="radio" onchange="statusSubmit()" name="permohonan"
+                                                            value="Kembalikan Berkas"
+                                                            {{ $pd->permohonan == 'Kembalikan Berkas' ? 'checked' : '' }}>
+                                                        Kembalikan
+                                                        Berkas
+                                                    </form>
+                                                </td>
+                                                <td class="align-middle">Nota Dinas
+                                                    @if ($pd->nota_dinas != null)
+                                                        <a href="{{ $pd->nota_dinas }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->nota_dinas_date }}</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#nota_dinas"><i class="ni ni-cloud-upload-96"></i>
+                                                        Upload</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-start align-middle">Disposisi
+                                                    @if ($pd->disposisi != null)
+                                                        <a href="{{ $pd->disposisi }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->disposisi_date }}</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#disposisi"><i class="ni ni-cloud-upload-96"></i>
+                                                        Upload</button>
+                                                </td>
+                                                <td class="align-middle">Undangan
+                                                    @if ($pd->undangan != null)
+                                                        <a href="{{ $pd->undangan }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->undangan_date }}</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#undangan"><i class="ni ni-cloud-upload-96"></i>
+                                                        Upload</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-start align-middle">Berita Acara
+                                                    @if ($pd->ba != null)
+                                                        <a href="{{ $pd->ba }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->ba_date }}</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#ba"><i class="ni ni-cloud-upload-96"></i>
+                                                        Upload</button>
+                                                </td>
+                                                <td class="align-middle">Survey Berita Acara
+                                                    @if ($pd->ba_survey != null)
+                                                        <a href="{{ $pd->ba_survey }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->ba_survey_date }}</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#ba_survey"><i class="ni ni-cloud-upload-96"></i>
+                                                        Upload</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-start align-middle">RAB
+                                                    @if ($pd->kab != null)
+                                                        <a href="{{ $pd->kab }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->kab_date }}</span>
+
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#kab"><i class="ni ni-cloud-upload-96"></i>
+                                                        Upload</button>
+                                                </td>
+                                                <td class="align-middle">Izin Prinsip
+                                                    @if ($pd->izin_prinsip != null)
+                                                        <a href="{{ $pd->izin_prinsip }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->izin_prinsip_date }}</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#izin_prinsip"><i
+                                                            class="ni ni-cloud-upload-96"></i>
+                                                        Upload</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-start align-middle">Verifikasi Sesuai Permohonan Data
+                                                    Perubahan
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->lengkapi_berkas_date }}</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <form
+                                                        action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/update"
+                                                        method="post" name="lengkap">
+                                                        @csrf
+                                                        <input type="hidden" name="jenis" value="lengkapi_berkas">
+                                                        <input type="radio" onclick="submitLengkap()"
+                                                            name="lengkapi_berkas" value="Sesuai BA"
+                                                            {{ $pd->lengkapi_berkas == 'Sesuai BA' ? 'checked' : '' }}>
+                                                        Sesuai BA
+                                                        <br>
+                                                        <input type="radio" onclick="submitLengkap()"
+                                                            name="lengkapi_berkas" value="Tidak Sesuai BA"
+                                                            {{ $pd->lengkapi_berkas == 'Tidak Sesuai BA' ? 'checked' : '' }}>
+                                                        Tidak
+                                                        Sesuai
+                                                        BA
+                                                    </form>
+                                                </td>
+                                                <td class="align-middle">Rekomendasi Teknis
+                                                    @if ($pd->rekom_teknis != null)
+                                                        <a href="{{ $pd->rekom_teknis }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->rekom_teknis_date }}</span>
+
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#rekom_teknis"><i
+                                                            class="ni ni-cloud-upload-96"></i>
+                                                        Upload</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-start align-middle">Surat Izin
+                                                    @if ($pd->surat_ijin != null)
+                                                        <a href="{{ $pd->surat_ijin }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->surat_ijin_date }}</span>
+
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#surat_ijin"><i class="ni ni-cloud-upload-96"></i>
+                                                        Upload</button>
+                                                </td>
+                                                <td class="align-middle">Surat Mulai Kerja
+                                                    @if ($pd->surat_mulai_kerja != null)
+                                                        <a href="{{ $pd->surat_mulai_kerja }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->surat_mulai_kerja_date }}</span>
+
+                                                </td>
+                                                <td class="align-middle">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-start align-middle">KPKNL
+                                                    @if ($pd->kpknl != null)
+                                                        <a href="{{ $pd->kpknl }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->kpknl_date }}</span>
+
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#kpknl"><i class="ni ni-cloud-upload-96"></i>
+                                                        Upload</button>
+                                                </td>
+                                                <td class="align-middle">Dirjen BM
+                                                    @if ($pd->dirjen_bm != null)
+                                                        <a href="{{ $pd->dirjen_bm }}"><i
+                                                                class="ni ni-cloud-download-95"></i></a>
+                                                    @endif
+                                                    <br><span class="text-muted text-sm"><i
+                                                            class="ni ni-calendar-grid-58"></i>
+                                                        {{ $pd->dirjen_bm_date }}</span>
+
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button class="btn btn-primary my-auto btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#dirjen_bm"><i class="ni ni-cloud-upload-96"></i>
+                                                        Upload</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 @endif
                             </div>
 
@@ -408,7 +448,8 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Nota Dinas</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -439,7 +480,8 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Disposisi</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -470,7 +512,12 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Undangan</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -501,7 +548,8 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Berita Acara</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -514,7 +562,7 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
 
                             <div class="modal fade" id="ba_survey" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
@@ -532,7 +580,12 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Survey Berita Acara</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -563,7 +616,8 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">KAB</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -594,7 +648,13 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Izin Prinsip</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -625,7 +685,13 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Rekomendasi Teknis</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -656,7 +722,8 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Surat Izin</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -687,7 +754,8 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Surat Mulai Kerja</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -718,7 +786,8 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">KPKNL</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -749,7 +818,8 @@
                                             <div class="modal-body">
                                                 <div class="mb-3">
                                                     <p class="text-sm font-weight-bold mb-2">Dirjen BM</p>
-                                                    <input type="file" required name="berkas" class="form-control" accept=".pdf">
+                                                    <input type="file" required name="berkas" class="form-control"
+                                                        accept=".pdf">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -776,14 +846,14 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="text-center">
-                        <form action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/tolak"
-                            class="d-inline" method="post">
+                        <form action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/tolak" class="d-inline"
+                            method="post">
                             @csrf
                             <button type="submit" class="btn btn-danger"><i class="ni ni-fat-remove"></i>
                                 Kembalikan Berkas</button>
                         </form>
-                        <form action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/terima"
-                            class="d-inline" method="post">
+                        <form action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/terima" class="d-inline"
+                            method="post">
                             @csrf
                             <button type="submit" class="btn btn-primary"><i class="ni ni-check-bold"></i>
                                 Setuju</button>

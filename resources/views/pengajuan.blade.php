@@ -55,9 +55,23 @@
                                         </div>
                                     </div>
 
-                                    <div class="mb-3 mt-4 text-center">
+                                    <div class="mb-4 mt-4 text-center">
                                         <h5>Syarat Administrasi</h5>
                                         <hr>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-2">
+                                                <label for="exampleInputEmail1" class="form-label">Jenis Permohonan:</label>
+                                                <select name="jenis_permohonan" class="form-control">
+                                                    <option disabled selected>- Pilih Jenis Pengajuan -</option>
+                                                    <option value="Jaringan Utilitas">Jaringan Utilitas</option>
+                                                    <option value="Iklan/Reklame">Iklan/Reklame</option>
+                                                    <option value="Jalan Keluar Masuk">Jalan Keluar Masuk</option>
+                                                    <option value="Bangunan">Bangunan</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="mb-2">
@@ -86,8 +100,9 @@
                                     <div class="col-6">
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">KSWP:</label>
-                                            <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
-                                                name="kswp" style="font-size: 15px" aria-describedby="emailHelp">
+                                            <input type="file" accept=".pdf" id="exampleInputEmail1"
+                                                class="text-dark" name="kswp" style="font-size: 15px"
+                                                aria-describedby="emailHelp">
                                         </div>
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">NIB:</label>
@@ -135,8 +150,8 @@
                                 </div>
                                 <div class="mb-2">
                                     <label for="exampleInputEmail1" class="form-label">Jadwal Pelaksanaan:</label>
-                                    <input type="date" id="exampleInputEmail1" class="text-dark"
-                                        name="jadwal_pelaksanaan" style="font-size: 15px" aria-describedby="emailHelp">
+                                    <input type="date" id="flatrange" class="text-dark" name="jadwal_pelaksanaan"
+                                        style="font-size: 15px" aria-describedby="emailHelp">
                                 </div>
                                 <div class="mb-3">
                                     <div id="emailHelp" class="form-text">File tidak boleh melebihi 2MB</div>
