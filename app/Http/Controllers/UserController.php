@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berkas;
 use App\Models\Permohonan;
 use App\Models\PermohonanDetail;
 use App\Models\User;
@@ -167,6 +168,7 @@ class UserController extends Controller
         return view('faq', [
             'pageTitle' => 'SILONTAR | FAQ',
             'page' => 'faq',
+            'berkas' => Berkas::get(),
         ]);
     }
 }
