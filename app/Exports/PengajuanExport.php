@@ -3,15 +3,19 @@
 namespace App\Exports;
 
 use App\Models\PermohonanDetail;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class PengajuanExport implements FromCollection
+class PengajuanExport implements FromView
 {
     /**
      * @return \Illuminate\Support\Collection
      */
-    public function collection()
+    public function  view(): View
     {
-        return PermohonanDetail::all();
+        $pengajuan = PermohonanDetail::get();
+        return view('exports.pengajuan', [
+            'pengajuan' => $pengajuan
+        ]);
     }
 }

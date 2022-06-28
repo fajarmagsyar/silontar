@@ -70,7 +70,7 @@ class AdminController extends Controller
     }
     public function user()
     {
-        $user = User::get();
+        $user = User::where('role', 'user')->get();
         return view('admin.user', [
             'user' => $user,
         ]);
@@ -105,7 +105,7 @@ class AdminController extends Controller
     {
         return view('admin.dokumen');
     }
-    public function exportExcel()
+    public function exportExcel(Request $request)
     {
         return Excel::download(new PengajuanExport, 'Permohonan Detail.xlsx');
     }
