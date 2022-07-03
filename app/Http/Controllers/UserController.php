@@ -44,15 +44,29 @@ class UserController extends Controller
         ]);
     }
 
-    public function pengajuanList()
+    public function pengajuanListAll()
     {
         return view('pengajuan-list', [
             'dataUser' => User::find(auth()->user()->user_id),
-            'pengajuan' => Permohonan::join('user', 'user.user_id', '=', 'permohonan.user_id')->where('permohonan.user_id', auth()->user()->user_id)->orderBy('permohonan.created_at', 'desc')->paginate(10),
+            'pengajuan' => Permohonan::join('user', 'user.user_id', '=', 'permohonan.user_id')->join('permohonan_detail', 'permohonan_detail.permohonan_id', '=', 'permohonan.permohonan_id')->where('permohonan.user_id', auth()->user()->user_id)->orderBy('permohonan.created_at', 'desc')->select(['permohonan.*', 'permohonan_detail.permohonan', 'user.user_id'])->paginate(10),
             'pageTitle' => 'SILONTAR | List Pengajuan',
             'page' => 'pengajuan',
         ]);
     }
+
+
+
+    public function pengajuanList($id)
+    {
+        return view('pengajuan-single', [
+            'dataUser' => User::find(auth()->user()->user_id),
+            'pengajuan' => Permohonan::join('user', 'user.user_id', '=', 'permohonan.user_id')->where('permohonan.user_id', auth()->user()->user_id)->orderBy('permohonan.created_at', 'desc')->where('permohonan.permohonan_id', '=', $id)->paginate(1),
+            'pageTitle' => 'SILONTAR | List Pengajuan',
+            'page' => 'pengajuan',
+        ]);
+    }
+
+
 
 
     public function pengajuanStore(Request $request)
@@ -81,6 +95,8 @@ class UserController extends Controller
         $data = [
             'jenis_permohonan' => $request->input('jenis_permohonan'),
             'kode' => Str::random(6),
+            'surat_permohonan_no' => $request->input('surat_permohonan_no'),
+            'surat_pernyataan_no' => $request->input('surat_pernyataan_no'),
             'surat_permohonan' => $berkas[0],
             'surat_pernyataan' => $berkas[1],
             'ktp' => $berkas[2],

@@ -16,30 +16,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UserController::class, 'index']);
-Route::get('/registrasi', [AuthController::class, 'daftar']);
-Route::post('/registrasi', [AuthController::class, 'daftarStore']);
-Route::get('/login', [UserController::class, 'login']);
-Route::get('/lupa-password', [UserController::class, 'lupaPassword']);
-Route::get('/pengajuan', [UserController::class, 'pengajuan']);
-Route::get('/pengajuan/list', [UserController::class, 'pengajuanList']);
-Route::post('/pengajuan/store', [UserController::class, 'pengajuanStore']);
-Route::post('/auth', [AuthController::class, 'login']);
-Route::post('/auth/verifikasi-token', [AuthController::class, 'verifikasiToken']);
-Route::post('/auth/reset-pass', [AuthController::class, 'resetPassword']);
-Route::post('/auth/reset-pass/store/{token}', [AuthController::class, 'resetPasswordStore']);
-Route::get('/reset-password/{token}', [AuthController::class, 'resetForm']);
-Route::get('/verifikasi-akun', [AuthController::class, 'verifikasiTokenPage']);
-Route::get('/kirim-token', [AuthController::class, 'kirimToken']);
-Route::post('/profil/ubahpassword', [UserController::class, 'ubahPassword']);
-Route::get('/profil', [UserController::class, 'profil']);
-Route::get('/logout', [AuthController::class, 'logout']);
-Route::post('/uploadSurat/{id}', [UserController::class, 'mulaiKerjaUpload']);
-Route::post('/uploadBerkas/{id}', [UserController::class, 'berkasUpload']);
-Route::get('/faq', [UserController::class, 'faq']);
+Route::get('/', [UserController::class, 'index'])->middleware('exposure');
+Route::get('/registrasi', [AuthController::class, 'daftar'])->middleware('exposure');
+Route::post('/registrasi', [AuthController::class, 'daftarStore'])->middleware('exposure');
+Route::get('/login', [UserController::class, 'login'])->middleware('exposure');
+Route::get('/lupa-password', [UserController::class, 'lupaPassword'])->middleware('exposure');
+Route::get('/pengajuan', [UserController::class, 'pengajuan'])->middleware('exposure');
+Route::get('/pengajuan/list', [UserController::class, 'pengajuanListAll'])->middleware('exposure');
+Route::get('/pengajuan/list/{id}', [UserController::class, 'pengajuanList'])->middleware('exposure');
+Route::post('/pengajuan/store', [UserController::class, 'pengajuanStore'])->middleware('exposure');
+Route::post('/auth', [AuthController::class, 'login'])->middleware('exposure');
+Route::post('/auth/verifikasi-token', [AuthController::class, 'verifikasiToken'])->middleware('exposure');
+Route::post('/auth/reset-pass', [AuthController::class, 'resetPassword'])->middleware('exposure');
+Route::post('/auth/reset-pass/store/{token}', [AuthController::class, 'resetPasswordStore'])->middleware('exposure');
+Route::get('/reset-password/{token}', [AuthController::class, 'resetForm'])->middleware('exposure');
+Route::get('/verifikasi-akun', [AuthController::class, 'verifikasiTokenPage'])->middleware('exposure');
+Route::get('/kirim-token', [AuthController::class, 'kirimToken'])->middleware('exposure');
+Route::post('/profil/ubahpassword', [UserController::class, 'ubahPassword'])->middleware('exposure');
+Route::get('/profil', [UserController::class, 'profil'])->middleware('exposure');
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('exposure');
+Route::post('/uploadSurat/{id}', [UserController::class, 'mulaiKerjaUpload'])->middleware('exposure');
+Route::post('/uploadBerkas/{id}', [UserController::class, 'berkasUpload'])->middleware('exposure');
+Route::get('/faq', [UserController::class, 'faq'])->middleware('exposure');
 
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('exposure')->group(function () {
     Route::get('/beranda', [AdminController::class, 'beranda']);
     Route::get('/user', [AdminController::class, 'user']);
     Route::get('/pengajuan', [AdminController::class, 'pengajuan']);

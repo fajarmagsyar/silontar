@@ -133,8 +133,7 @@
                         <ul>
                             <li><i class="bx bx-chevron-right"></i> <a href="#hero">BERANDA</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#service">PANDUAN UMUM</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#tentang">TENTANG</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#kontak">KONTAK</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/faq">FAQ</a></li>
                         </ul>
                     </div>
 

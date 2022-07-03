@@ -59,26 +59,42 @@
                                         <h5>Syarat Administrasi</h5>
                                         <hr>
                                     </div>
+
                                     @foreach($berkas as $r)
-                                    
-                                    <div class="col-6">
-                                        <div class="mb-2">
-                                            <label for="exampleInputEmail1" class="form-label">Surat Permohonan:</label>
-                                            <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
+                                    <div class="row">   
+                                        <div class="col-6">
+                                            <div class="mb-2">
+                                                <label for="exampleInputEmail1" class="form-label">No Surat Permohonan:</label>
+                                                <input type="text" placeholder="Masukkan No Surat Permohonan"
+                                                id="exampleInputEmail1" class="text-dark" name="surat_permohonan_no"
+                                                style="font-size: 15px" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-2">
+                                                <label for="exampleInputEmail1" class="form-label">Surat Permohonan:</label>
+                                                <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
                                                 name="surat_permohonan" style="font-size: 15px"
                                                 aria-describedby="emailHelp">
+                                            </div>
                                                 <p class="text">Contoh surat permohonan dapat dilihat<a href="{{ $r->path }}"> disini!</a></p>
                                         </div>
-                                    </div>
-                                    <div class="col-6">
+                                    <div class="col-6">                                            
                                         <div class="mb-2">
-                                            <label for="exampleInputEmail1" class="form-label">Surat Pernyataan:</label>
-                                            <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
+                                            <label for="exampleInputEmail1" class="form-label">No Surat Pernyataan:</label>
+                                            <input type="text" placeholder="Masukkan No Surat Pernyataan"
+                                                id="exampleInputEmail1" class="text-dark" name="surat_pernyataan_no"
+                                                style="font-size: 15px" aria-describedby="emailHelp">
+                                        </div>
+                                        <div class="mb-2">
+                                                <label for="exampleInputEmail1" class="form-label">Surat Pernyataan:</label>
+                                                <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
                                                 name="surat_pernyataan" style="font-size: 15px"
                                                 aria-describedby="emailHelp">
-                                            <p class="text">Contoh surat Pernyataan dapat dilihat<a href="{{ $r->keterangan }}"> disini!</a></p>
-                                        </div>
+                                         </div>
+                                         <p class="text">Contoh surat Pernyataan dapat dilihat<a href="{{ $r->keterangan }}"> disini!</a></p>
+                                            
                                     </div>
+                                </div>
+                                        
                                         @endforeach
                                         
                                     <div class="mb-3 mt-4 text-center">
@@ -99,16 +115,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6">                                            
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">KTP:</label>
-                                            <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
-                                                name="ktp" style="font-size: 15px" aria-describedby="emailHelp">
+                                            <input type="file" accept=".pdf" id="exampleInputEmail1"
+                                                class="text-dark" name="ktp" style="font-size: 15px"
+                                                aria-describedby="emailHelp">
                                         </div>
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">NPWP:</label>
-                                            <input type="file" accept=".pdf" id="exampleInputEmail1" class="text-dark"
-                                                name="npwp" style="font-size: 15px" aria-describedby="emailHelp">
+                                            <input type="file" accept=".pdf" id="exampleInputEmail1"
+                                                class="text-dark" name="npwp" style="font-size: 15px"
+                                                aria-describedby="emailHelp">
                                         </div>
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">KSWP:</label>
@@ -145,6 +163,7 @@
                                     <hr>
                                 </div>
                                 <div class="row">
+
                                     <div class="col-6">
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">Gambar Lokasi:</label>
