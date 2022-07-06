@@ -17,6 +17,9 @@ class Berkas extends Migration
             $table->integer('berkas_id')->autoIncrement();
             $table->string('path')->nullable();
             $table->string('keterangan')->nullable();
+            $table->string('permen')->nullable();
+            $table->string('edaran')->nullable();
+            $table->string('panduan')->nullable();
             $table->timestamps();
         });
     }

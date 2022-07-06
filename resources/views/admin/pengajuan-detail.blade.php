@@ -218,6 +218,11 @@
                                                     @if ($pd->nota_dinas != null)
                                                         <a href="{{ $pd->nota_dinas }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->permohonan != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
@@ -234,6 +239,11 @@
                                                     @if ($pd->disposisi != null)
                                                         <a href="{{ $pd->disposisi }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->nota_dinas != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
@@ -248,6 +258,11 @@
                                                     @if ($pd->undangan != null)
                                                         <a href="{{ $pd->undangan }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->disposisi != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
@@ -264,6 +279,11 @@
                                                     @if ($pd->ba != null)
                                                         <a href="{{ $pd->ba }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->undangan != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
@@ -278,6 +298,11 @@
                                                     @if ($pd->ba_survey != null)
                                                         <a href="{{ $pd->ba_survey }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->ba != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
@@ -294,6 +319,11 @@
                                                     @if ($pd->kab != null)
                                                         <a href="{{ $pd->kab }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->ba_survey != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
@@ -309,8 +339,12 @@
                                                     @if ($pd->izin_prinsip != null)
                                                         <a href="{{ $pd->izin_prinsip }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->kab != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
-
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
                                                         {{ $pd->izin_prinsip_date }}</span>
@@ -323,12 +357,19 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="text-start align-middle">Verifikasi Sesuai Permohonan Data
-                                                    Perubahan
+                                                <td class="text-start align-middle">Verifikasi Permohonan 
+                                                    @if($pd->lengkapi_berkas != null)
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
                                                         {{ $pd->lengkapi_berkas_date }}</span>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->izin_prinsip != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
+                                                    @endif
                                                 </td>
+                                                
                                                 <td class="align-middle">
                                                     <form
                                                         action="/admin/pengajuan/detail/{{ $pengajuan->permohonan_id }}/update"
@@ -352,6 +393,11 @@
                                                     @if ($pd->rekom_teknis != null)
                                                         <a href="{{ $pd->rekom_teknis }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->lengkapi_berkas != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
@@ -370,6 +416,11 @@
                                                     @if ($pd->surat_ijin != null)
                                                         <a href="{{ $pd->surat_ijin }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->rekom_teknis != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
@@ -385,6 +436,11 @@
                                                     @if ($pd->surat_mulai_kerja != null)
                                                         <a href="{{ $pd->surat_mulai_kerja }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->surat_ijin != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
@@ -399,6 +455,11 @@
                                                     @if ($pd->kpknl != null)
                                                         <a href="{{ $pd->kpknl }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->surat_mulai_kerja != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
@@ -414,6 +475,11 @@
                                                     @if ($pd->dirjen_bm != null)
                                                         <a href="{{ $pd->dirjen_bm }}"><i
                                                                 class="ni ni-cloud-download-95"></i></a>
+                                                    @else
+                                                    <span class="badge bg-danger rounded-pill" style="font-size: 10px">
+                                                    <i class="ni ni-time-alarm"></i>
+                                                    {{ $pd->kpknl != null ? 'Proses: 1 hari' : '' }}
+                                                    </span>
                                                     @endif
                                                     <br><span class="text-muted text-sm"><i
                                                             class="ni ni-calendar-grid-58"></i>
@@ -451,6 +517,10 @@
                                                     <input type="file" required name="berkas" class="form-control"
                                                         accept=".pdf">
                                                 </div>
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -482,6 +552,10 @@
                                                     <p class="text-sm font-weight-bold mb-2">Disposisi</p>
                                                     <input type="file" required name="berkas" class="form-control"
                                                         accept=".pdf">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -551,6 +625,10 @@
                                                     <input type="file" required name="berkas" class="form-control"
                                                         accept=".pdf">
                                                 </div>
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -615,9 +693,13 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="mb-3">
-                                                    <p class="text-sm font-weight-bold mb-2">KAB</p>
+                                                    <p class="text-sm font-weight-bold mb-2">RAB</p>
                                                     <input type="file" required name="berkas" class="form-control"
                                                         accept=".pdf">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -725,6 +807,10 @@
                                                     <input type="file" required name="berkas" class="form-control"
                                                         accept=".pdf">
                                                 </div>
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -756,6 +842,10 @@
                                                     <p class="text-sm font-weight-bold mb-2">Surat Mulai Kerja</p>
                                                     <input type="file" required name="berkas" class="form-control"
                                                         accept=".pdf">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -789,6 +879,10 @@
                                                     <input type="file" required name="berkas" class="form-control"
                                                         accept=".pdf">
                                                 </div>
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -820,6 +914,10 @@
                                                     <p class="text-sm font-weight-bold mb-2">Dirjen BM</p>
                                                     <input type="file" required name="berkas" class="form-control"
                                                         accept=".pdf">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="no_surat" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

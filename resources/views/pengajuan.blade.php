@@ -59,10 +59,11 @@
                                         <h5>Syarat Administrasi</h5>
                                         <hr>
                                     </div>
-
+                                    
                                     @foreach($berkas as $r)
-                                    <div class="row">   
+                                    <div class="row">
                                         <div class="col-6">
+                                            
                                             <div class="mb-2">
                                                 <label for="exampleInputEmail1" class="form-label">No Surat Permohonan:</label>
                                                 <input type="text" placeholder="Masukkan No Surat Permohonan"
@@ -76,8 +77,9 @@
                                                 aria-describedby="emailHelp">
                                             </div>
                                                 <p class="text">Contoh surat permohonan dapat dilihat<a href="{{ $r->path }}"> disini!</a></p>
+                                           
                                         </div>
-                                    <div class="col-6">                                            
+                                    <div class="col-6">                                           
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">No Surat Pernyataan:</label>
                                             <input type="text" placeholder="Masukkan No Surat Pernyataan"
@@ -91,11 +93,10 @@
                                                 aria-describedby="emailHelp">
                                          </div>
                                          <p class="text">Contoh surat Pernyataan dapat dilihat<a href="{{ $r->keterangan }}"> disini!</a></p>
-                                            
+                                         
                                     </div>
                                 </div>
-                                        
-                                        @endforeach
+                                @endforeach
                                         
                                     <div class="mb-3 mt-4 text-center">
                                         <h5>Kelengkapan Pengajuan</h5>
@@ -124,6 +125,9 @@
                                         </div>
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">NPWP:</label>
+                                            <input type="text" placeholder="Masukkan Nomor NPWP"
+                                                id="exampleInputEmail1" class="text-dark" name="npwp_no"
+                                                style="font-size: 15px" aria-describedby="emailHelp">
                                             <input type="file" accept=".pdf" id="exampleInputEmail1"
                                                 class="text-dark" name="npwp" style="font-size: 15px"
                                                 aria-describedby="emailHelp">

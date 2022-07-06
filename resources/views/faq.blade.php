@@ -9,10 +9,28 @@
 
     <div class="container ">
         <div class="tab">
+            <button class="tablinks" onmouseover="openCity(event, 'hukum')">Dasar Hukum</button>
             <button class="tablinks" onmouseover="openCity(event, 'dokumen')">Format A1 dan A2</button>
             <button class="tablinks" onmouseover="openCity(event, 'tentang')">Tentang SiLONTAR</button>
             <button class="tablinks" onmouseover="openCity(event, 'kontak')">Kontak</button>
           </div>
+          @foreach ($berkas as $s)
+            
+          <div id="hukum" class="tabcontent">
+            <button class="accordion mt-4">Peraturan Menteri Pekerjaan Umum Nomor: 20/PRTM/2010</button>
+            <div class="panel">
+              <p>Peraturan Menteri Pekerjaan Umum Nomor: 20/PRTM/2010 <a href="{{ $s->permen }}"><i class="bi bi-cloud-arrow-down-fill"></i></a>
+              </p>
+            </div>
+            
+            <button class="accordion">Surat Edaran Direktur Jendral Bina Marga</button>
+            <div class="panel">
+              <p>Prosedur Perzinan Pemanfaatan Bagian-bagian Jalan Nasional <a href="{{ $s->edaran  }}"><i class="bi bi-cloud-arrow-down-fill"></i></a>
+              </p>
+            </div>
+          </div>
+          @endforeach
+
         @foreach ($berkas as $r)
             
           <div id="dokumen" class="tabcontent">
