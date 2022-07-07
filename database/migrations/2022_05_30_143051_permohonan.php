@@ -25,6 +25,7 @@ class Permohonan extends Migration
             $table->string('surat_pernyataan_no')->nullable();
             $table->string('ktp')->nullable();
             $table->string('npwp')->nullable();
+            $table->string('npwp_no')->nullable();
             $table->string('kswp')->nullable();
             $table->string('nib')->nullable();
             $table->string('siup')->nullable();

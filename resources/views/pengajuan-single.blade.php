@@ -183,7 +183,7 @@
                                                             @php
                                                                 $detail = PermohonanDetail::getDetail($r->permohonan_id);
                                                             @endphp
-                                                            @if ($detail->gambar_lokasi != null && $detail->gambar_konstruksi != null && $detail->sanggup_bayar != null && $detail->jadwal_pelaksanaan != null)
+                                                            @if ($detail->gambar_lokasi != null && $detail->gambar_konstruksi != null && $detail->sanggup_bayar != null && $detail->jadwal_pelaksanaan_b != null)
                                                                 <div class="card mt-3">
                                                                     <div class="card-body">
                                                                         <div class="col">
@@ -212,11 +212,13 @@
                                                                         </div>
                                                                         <hr>
                                                                         <div>
-                                                                            <span class="text-sm">Jadwal Pelaksanaan:
-                                                                            </span>
-                                                                            <br>
-                                                                            <b><i class="bi bi-calendar"></i>
-                                                                                {{ $detail->jadwal_pelaksanaan }}</b>
+                                                                            <div class="text-sm mb-1">Jadwal Pelaksanaan: </div>
+                                                                            <a href="{{ $detail->jadwal_pelaksanaan_b }}"
+                                                                                target="_blank"
+                                                                                class="btn btn-success btn-sm mt-3"><i
+                                                                                    class="bi bi-file-earmark-fill"></i>
+                                                                                Download</a>
+                                                                        </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -254,7 +256,7 @@
                                                                     <br>
                                                                     <span class="btn btn-success text-white mt-3 w-100"><i
                                                                             class="bi bi-check"></i>
-                                                                        Persyaratan Telah Unggah</span>
+                                                                        Persyaratan Telah dikirim</span>
                                                                 @endif
                                                             @endif
                                                             @if (PermohonanDetail::getDetail($r->permohonan_id)->surat_ijin != null)
@@ -270,7 +272,8 @@
                                                                     <br>
                                                                     <span class="btn btn-success text-white mt-3 w-100"><i
                                                                             class="bi bi-check"></i>
-                                                                        Surat telah diupload
+                                                                        Surat Permohonan Mulai
+                                                                        Bekerja Telah dikirim
                                                                     </span>
                                                                 @endif
                                                             @endif
@@ -297,11 +300,16 @@
                                                                 <div class="modal-body">
                                                                     <label for=""><b>Berkas:</b></label>
                                                                     <div class="mb-2">
+                                                                        <input type="hidden" name="jenis" value="berkas">
                                                                         <input type="file" name="berkas"
                                                                             class="form-control" accept=".pdf">
                                                                         <span class="text-muted">*Ukuran file maks: 2MB
                                                                             (.pdf)
                                                                         </span>
+                                                                    </div>
+                                                                    <div class="mb-2">
+                                                                        <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                                        <input type="text" required name="surat_mulai_kerja_no" class="form-control">
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -362,11 +370,11 @@
                                                                             2MB</span>
                                                                     </div>
                                                                     <div class="mb-3">
-                                                                        <label for=""><b>Jadwal
-                                                                                Pelaksanaan:</b></label>
-                                                                        <input type="datetime-local"
-                                                                            class="form-control fp"
-                                                                            name="jadwal_pelaksanaan">
+                                                                        <label for=""><b>Jadwal Pelaksanaan:</b></label>
+                                                                        <input type="file" name="jadwal_pelaksanaan"
+                                                                            class="form-control" required accept=".pdf">
+                                                                        <span class="text-muted">*Ukuran file maks:
+                                                                            2MB</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -424,6 +432,9 @@
                                                                                             <div class="fw-bold">Nota
                                                                                                 Dinas
                                                                                             </div>
+                                                                                            
+                                                                                        <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                            {{ $detailGet->nota_dinas_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->nota_dinas != null)
                                                                                             <a
@@ -448,6 +459,8 @@
                                                                                             <div class="fw-bold">
                                                                                                 Disposisi
                                                                                             </div>
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->disposisi_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->disposisi != null)
                                                                                             <a
@@ -462,11 +475,11 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->nota_dinas != null ? 'Proses: 2 hari' : '' }}
+                                                                                                {{ $detailGet->nota_dinas != null ? 'Proses: 1 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
-                                                                                    <div class="text-center my-3">
+                                                                                    <div class="text-center my-4">
                                                                                         <b>Rapat
                                                                                             Persiapan Survey</b>
                                                                                     </div>
@@ -476,6 +489,8 @@
                                                                                             <div class="fw-bold">
                                                                                                 Undangan
                                                                                             </div>
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->undangan_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->undangan != null)
                                                                                             <a
@@ -500,6 +515,8 @@
                                                                                             <div class="fw-bold">Berita
                                                                                                 Acara
                                                                                             </div>
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->ba_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->ba != null)
                                                                                             <a
@@ -518,15 +535,17 @@
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
-                                                                                    <div class="text-center my-3">
+                                                                                    <div class="text-center my-4">
                                                                                         <b>Hasil Survey</b>
                                                                                     </div>
                                                                                     <li
                                                                                         class="list-group-item d-flex justify-content-between align-items-start">
                                                                                         <div class="ms-2 me-auto">
                                                                                             <div class="fw-bold">Berita
-                                                                                                Acara
-                                                                                                Survey</div>
+                                                                                                Acara Survey
+                                                                                            </div>
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->ba_survey_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->ba_survey != null)
                                                                                             <a
@@ -541,7 +560,7 @@
                                                                                             <span
                                                                                                 class="badge bg-danger rounded-pill">
                                                                                                 <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->ba != null ? 'Proses: 4 hari' : '' }}
+                                                                                                {{ $detailGet->ba != null ? 'Proses: 3 hari' : '' }}
                                                                                             </span>
                                                                                         @endif
                                                                                     </li>
@@ -550,6 +569,8 @@
                                                                                         <div class="ms-2 me-auto">
                                                                                             <div class="fw-bold">RAB
                                                                                             </div>
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->kab_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->kab != null)
                                                                                             <a
@@ -577,9 +598,11 @@
                                                                                     <li
                                                                                         class="list-group-item d-flex justify-content-between align-items-start">
                                                                                         <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">Izin
+                                                                                            <div class="fw-bold">Persetujuan
                                                                                                 Prinsip
                                                                                             </div>
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->izin_prinsip_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->izin_prinsip != null)
                                                                                             <a
@@ -601,9 +624,7 @@
                                                                                     <li
                                                                                         class="list-group-item d-flex justify-content-between align-items-start">
                                                                                         <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">Berkas
-                                                                                                Telah
-                                                                                                Lengkap:</div>
+                                                                                            <div class="fw-bold">Verifikasi Berkas:</div>
                                                                                             @if ($detailGet->lengkapi_berkas != null && $detailGet->lengkapi_berkas == 'Tidak Sesuai BA')
                                                                                                 {{ $detailGet->lengkapi_berkas }},
                                                                                                 Silahkan upload kembali
@@ -613,6 +634,9 @@
                                                                                             @elseif($detailGet->lengkapi_berkas != null)
                                                                                                 {{ $detailGet->lengkapi_berkas }}
                                                                                             @endif
+                                                                                            <br>   
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->lengkapi_berkas_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->lengkapi_berkas != null)
                                                                                             <span
@@ -633,6 +657,9 @@
                                                                                             <div class="fw-bold">
                                                                                                 Rekomendasi
                                                                                                 Teknis</div>
+                                                                                                
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->rekom_teknis_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->rekom_teknis != null)
                                                                                             <a
@@ -657,6 +684,9 @@
                                                                                             <div class="fw-bold">Surat
                                                                                                 Izin
                                                                                             </div>
+                                                                                            
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->surat_ijin_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->surat_ijin != null)
                                                                                             <a
@@ -677,10 +707,14 @@
                                                                                     </li>
                                                                                     <li
                                                                                         class="list-group-item d-flex justify-content-between align-items-start">
+                                                                                        
                                                                                         <div class="ms-2 me-auto">
                                                                                             <div class="fw-bold">Surat
                                                                                                 Mulai
                                                                                                 Kerja</div>
+                                                                                                
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->surat_mulai_kerja_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->surat_mulai_kerja != null)
                                                                                             <a
@@ -708,6 +742,9 @@
                                                                                         <div class="ms-2 me-auto">
                                                                                             <div class="fw-bold">KPKNL
                                                                                             </div>
+                                                                                            
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->kpknl_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->kpknl != null)
                                                                                             <a
@@ -732,6 +769,9 @@
                                                                                             <div class="fw-bold">Dirjen
                                                                                                 BM
                                                                                             </div>
+                                                                                            
+                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
+                                                                                                {{ $detailGet->dirjen_bm_date }}</i>
                                                                                         </div>
                                                                                         @if ($detailGet->dirjen_bm != null)
                                                                                             <a

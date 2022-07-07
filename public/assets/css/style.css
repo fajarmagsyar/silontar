@@ -1399,7 +1399,7 @@ section {
 }
 
 .accordion {
-  background-color: rgb(255, 253, 253);
+  background-color: rgb(185, 179, 179);
   color: #444;
   cursor: pointer;
   padding: 18px;
@@ -1410,6 +1410,7 @@ section {
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   transition: 0.4s;
+  border: 1px solid #ccc;
 }
 
 .accordion:hover {
@@ -1421,10 +1422,7 @@ section {
   display: none;
   background-color: white;
   overflow: hidden;
-}
-.bi-plus-circle-fill{
-  width: 100%;
-  margin-left:621px;
+  border: 1px solid #ccc;
 }
 
 * {box-sizing: border-box}
@@ -1436,7 +1434,7 @@ section {
   border: 1px solid #ccc;
   background-color: #ffffff;
   width: 20%;
-  height: 202px;
+  height: 400px;
 }
 .tab button {
   display: block;
@@ -1462,7 +1460,7 @@ section {
   border: 1px solid #ccc;
   width: 70%;
   border-left: none;
-  height: 350px;
+  height: 480px;
   display: none;
 }
 .clearfix::after {

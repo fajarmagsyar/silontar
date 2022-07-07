@@ -85,12 +85,10 @@
 
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
                     <div class="icon-box">
-                        <div class="icon"><i class="bi bi-telephone-inbound-fill"></i></div>
+                        <div class="icon"><i class="bi bi-eyeglasses"></i></div>
                         <h4><a href="">6. Melihat Status Permohonan</a></h4>
-                        <p> Setelah semua proses sudah dilakukan dengan prosedur yang berlaku, staff Balai Besar
-                            Pelaksanaan Jalan
-                            Nasional X Nusa Tenggara Timur akan menghubungi Anda melalui telepon dan/atau email terkait
-                            status permohonan Anda (Diterima/Ditolak).</p>
+                        <p> Setelah semua proses sudah dilakukan dengan prosedur yang berlaku, Admin akan memberitahukan permohonan
+                            yang dilakukan akan di terima atau ditolak melelui fitur cek status.
                     </div>
                 </div>
 

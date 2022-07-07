@@ -27,4 +27,10 @@ class PermohonanDetail extends Model
     {
         return PermohonanDetail::where('permohonan_id', $id)->first();
     }
+    static public function getBelumProses()
+    {
+        return PermohonanDetail::rightJoin('permohonan', 'permohonan.permohonan_id', '=', 'permohonan_detail.permohonan_id')
+            ->whereNull('permohonan_detail.permohonan')
+            ->count();
+    }
 }

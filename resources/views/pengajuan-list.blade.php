@@ -81,9 +81,8 @@
                                                     </td>
                                                     <td class="align-middle text-center">
                                                         @if ($r->permohonan == null)
-                                                            <div class="badge bg-primary"><i class="ni ni-watch-time"></i>
-                                                                Belum
-                                                                diproses</div>
+                                                            <div class="badge bg-primary"><i class="bi bi-clock-fill"></i>
+                                                                Menunggu Verifikasi</div>
                                                         @elseif ($r->permohonan == 'Setuju')
                                                             <div class="badge bg-success"><i class="ni ni-check-bold"></i>
                                                                 Setuju
