@@ -141,7 +141,7 @@ class AdminController extends Controller
 
     public function dokumenStore(Request $request)
     {
-        $berkas = ['path', 'keterangan', 'permen', 'edaran'];
+        $berkas = ['path', 'keterangan', 'permen', 'edaran', 'panduan'];
         // dd($request->file('npwp'));
         foreach ($berkas as $key => $r) {
             $temp_berkas = $request->file($r)->getPathName();
@@ -156,6 +156,7 @@ class AdminController extends Controller
             'keterangan' => $berkas[1],
             'permen' => $berkas[2],
             'edaran' => $berkas[3],
+            'panduan' => $berkas[4],
             'berkas_id' => auth()->user()->user_id,
         ];
 

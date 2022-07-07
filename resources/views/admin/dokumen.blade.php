@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="mb-3 mt-4 text-center">
                                 <h5>Permen PU20-2010</h5>
                                 <hr>
@@ -52,7 +52,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="mb-3 mt-4 text-center">
                                 <h5>Surat Edaran Direktur Jendral Bina Marga</h5>
                                 <hr>
@@ -60,6 +60,16 @@
                             <div class="mb-2">
                                 <label for="exampleInputEmail1" class="form-label">Surat Edaran:</label>
                                 <input type="file" class="form-control" name="edaran">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mb-3 mt-4 text-center">
+                                <h5>Buku Panduan Alplikasi SILONTAR</h5>
+                                <hr>
+                            </div>
+                            <div class="mb-2">
+                                <label for="exampleInputEmail1" class="form-label">Buku Pedoman:</label>
+                                <input type="file" class="form-control" name="panduan">
                             </div>
                         </div>
                     </div>

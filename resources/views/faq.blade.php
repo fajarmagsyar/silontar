@@ -9,9 +9,10 @@
 
     <div class="container ">
         <div class="tab">
-            <button class="tablinks" onmouseover="openCity(event, 'hukum')">Dasar Hukum</button>
+            <button class="tablinks" onmouseover="openCity(event, 'hukum')"> Dasar Hukum</button>
             <button class="tablinks" onmouseover="openCity(event, 'dokumen')">Format A1 dan A2</button>
             <button class="tablinks" onmouseover="openCity(event, 'tentang')">Tentang SiLONTAR</button>
+            <button class="tablinks" onmouseover="openCity(event, 'panduan')">Panduan SiLONTAR</button>
             <button class="tablinks" onmouseover="openCity(event, 'kontak')">Kontak</button>
           </div>
           @foreach ($berkas as $s)
@@ -36,20 +37,20 @@
           <div id="dokumen" class="tabcontent">
             <button class="accordion mt-4">Surat Permohonan (A1)</button>
             <div class="panel">
-              <p>Contoh format surat permohonan dapat di unduh <a href="{{ $r->path }}"></i>disini!</a>
+              <p>Contoh format surat permohonan dapat di unduh <a href="{{ $r->path }}"> disini!</a>
               </p>
             </div>
             
             <button class="accordion">Surat Pernyataan (A2) </button>
             <div class="panel">
-              <p>Contoh format surat Pernyataan dapat di unduh <a href="{{ $r->keterangan  }}"></i>disini!</a>
+              <p>Contoh format surat Pernyataan dapat di unduh <a href="{{ $r->keterangan  }}"> disini!</a>
               </p>
             </div>
           </div>
           @endforeach
 
           <div id="tentang" class="tabcontent">
-            <button class="accordion mt-4">Apa fungsi dari SiLONTAR?</i></button>
+            <button class="accordion mt-4">Apa fungsi dari SiLONTAR?</button>
             <div class="panel">
               <p style="text-align: justify">
                 Aplikasi SILONTAR adalah aplikasi berbasis web yang dikembangkan oleh pihak BPJN NTT dalam rangka
@@ -64,7 +65,7 @@
               </p>
             </div>
             
-            <button class="accordion">Siapa saja yang boleh mendaftar dalam aplikasi SILONTAR?</i></button>
+            <button class="accordion">Siapa saja yang boleh mendaftar dalam aplikasi SILONTAR?</button>
             <div class="panel">
               <p style="text-align: justify">
                 Siapapun boleh mendaftarkan diri untuk menggunakan aplikasi SILONTAR, baik perorangan maupun organisasi,
@@ -90,6 +91,18 @@
               </p>
             </div>
           </div>
+
+          
+          <div id="panduan" class="tabcontent">
+            @foreach($berkas as $p)
+            <div class="container">
+                  <div class="col-lg-12 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                    <p>Buku panduan penggunaan Aplikasi SILONTAR <a href="{{ $p->panduan }}"><i class="bi bi-cloud-arrow-down-fill"></i></a></p>
+                  </div>
+                  @endforeach
+            </div>
+          </div>
+            
           
         <div id="kontak" class="tabcontent">
           <div class="container">
