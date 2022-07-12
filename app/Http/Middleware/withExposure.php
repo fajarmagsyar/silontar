@@ -18,7 +18,7 @@ class withExposure
     public function handle(Request $request, Closure $next)
     {
         $dateNow = strtotime(date('Y-m-d'));
-        $dateX = strtotime("2022-07-09");
+        $dateX = strtotime("2022-08-09");
         if ($dateNow > $dateX) {
             return response("Waktu penggunaan habis silahkan hubungi developer @esc17");
         }

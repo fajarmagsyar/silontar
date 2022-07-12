@@ -119,13 +119,17 @@ class AdminController extends Controller
     }
     public function komentarSimpan(Request $req, $id)
     {
+
         $data = [
             'komentar' => $req->input('komentar'),
+            'komentar_date' => date('Y-m-d')
         ];
+
+        // dd($data);
         // MASUKKAN KE DATABASE
         PermohonanDetail::where('permohonan_id', $id)->update($data);
 
-        return redirect('/admin/pengajuan/detail/' . $id);
+        return redirect('/admin/pengajuan/detail/' . $id)->with('success', 'Berhasil');
     }
 
     public function dokumen()

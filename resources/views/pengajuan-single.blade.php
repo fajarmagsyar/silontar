@@ -212,627 +212,603 @@
                                                                         </div>
                                                                         <hr>
                                                                         <div>
-                                                                            <div class="text-sm mb-1">Jadwal Pelaksanaan: </div>
+                                                                            <div class="text-sm mb-1">Jadwal Pelaksanaan:
+                                                                            </div>
                                                                             <a href="{{ $detail->jadwal_pelaksanaan_b }}"
                                                                                 target="_blank"
                                                                                 class="btn btn-success btn-sm mt-3"><i
                                                                                     class="bi bi-file-earmark-fill"></i>
                                                                                 Download</a>
                                                                         </div>
-                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            @else
-                                                                <div class="card">
-                                                                    <div class="card-body p-2">
-                                                                        <span class="card-text">
-                                                                            Persyaratan tambahan <br> <b>belum diupload</b>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-                                                        @endif
-                                                    </td>
-                                                    <td class="align-middle text-sm text-center">
-                                                        <button class="btn btn-info text-white w-100"
-                                                            class="btn btn-primary" data-bs-toggle="modal"
-                                                            data-bs-target="#status_{{ $r->permohonan_id }}"><i
-                                                                class="bi bi-search"></i>
-                                                            Cek
-                                                            Status</button>
-                                                        @if (PermohonanDetail::getDetailById($r->permohonan_id) == true)
-                                                            @if (PermohonanDetail::getDetail($r->permohonan_id)->lengkapi_berkas != null)
-                                                                @php
-                                                                    $detail = PermohonanDetail::getDetail($r->permohonan_id);
-                                                                @endphp
-                                                                @if ($detail->gambar_lokasi == null && $detail->gambar_konstruksi == null && $detail->jadwal_pelaksanaan == null && $detail->sanggup_bayar == null)
-                                                                    <br>
-                                                                    <button class="btn btn-danger text-white mt-3 w-100"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#berkas_{{ $r->permohonan_id }}"><i
-                                                                            class="bi bi-cloud-upload"></i>
-                                                                        Melengkapi Persyaratan</button>
-                                                                @else
-                                                                    <br>
-                                                                    <span class="btn btn-success text-white mt-3 w-100"><i
-                                                                            class="bi bi-check"></i>
-                                                                        Persyaratan Telah dikirim</span>
-                                                                @endif
-                                                            @endif
-                                                            @if (PermohonanDetail::getDetail($r->permohonan_id)->surat_ijin != null)
-                                                                @if (PermohonanDetail::getDetail($r->permohonan_id)->surat_mulai_kerja == null)
-                                                                    <br>
-                                                                    <button class="btn btn-warning text-white mt-3 w-100"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#surat_{{ $r->permohonan_id }}"><i
-                                                                            class="bi bi-cloud-upload"></i>
-                                                                        <b>Upload</b> <br> Surat Permohonan Mulai
-                                                                        Bekerja</button>
-                                                                @else
-                                                                    <br>
-                                                                    <span class="btn btn-success text-white mt-3 w-100"><i
-                                                                            class="bi bi-check"></i>
-                                                                        Surat Permohonan Mulai
-                                                                        Bekerja Telah dikirim
-                                                                    </span>
-                                                                @endif
-                                                            @endif
-                                                        @endif
-                                                    </td>
-                                                </tr>
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="surat_{{ $r->permohonan_id }}"
-                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <form action="/uploadSurat/{{ $r->permohonan_id }}"
-                                                            method="post" enctype="multipart/form-data">
-                                                            @csrf
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Upload
-                                                                        Surat
-                                                                    </h5>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal"
-                                                                        aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <label for=""><b>Berkas:</b></label>
-                                                                    <div class="mb-2">
-                                                                        <input type="hidden" name="jenis" value="berkas">
-                                                                        <input type="file" name="berkas"
-                                                                            class="form-control" accept=".pdf">
-                                                                        <span class="text-muted">*Ukuran file maks: 2MB
-                                                                            (.pdf)
-                                                                        </span>
-                                                                    </div>
-                                                                    <div class="mb-2">
-                                                                        <p class="text-sm font-weight-bold mb-2">No Surat</p>
-                                                                        <input type="text" required name="surat_mulai_kerja_no" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Tutup</button>
-                                                                    <button type="submit"
-                                                                        class="btn btn-info text-white"><i
-                                                                            class="bi bi-plus"></i> Unggah
-                                                                        Berkas</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="modal fade" id="berkas_{{ $r->permohonan_id }}"
-                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <form action="/uploadBerkas/{{ $r->permohonan_id }}"
-                                                            method="post" enctype="multipart/form-data">
-                                                            @csrf
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Upload
-                                                                        Berkas
-                                                                    </h5>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal"
-                                                                        aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="mb-3">
-                                                                        <label for=""><b>Gambar Lokasi:</b></label>
-                                                                        <input type="file" name="gambar_lokasi"
-                                                                            class="form-control" required
-                                                                            accept=".jpg, .png">
-                                                                        <span class="text-muted">*Ukuran file maks:
-                                                                            2MB</span>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for=""><b>Gambar
-                                                                                Konstruksi:</b></label>
-                                                                        <input type="file" name="gambar_konstruksi"
-                                                                            class="form-control" required
-                                                                            accept=".jpg, .png">
-                                                                        <span class="text-muted">*Ukuran file maks:
-                                                                            2MB</span>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for=""><b>Surat Pernyataan
-                                                                                Kesanggupan
-                                                                                Membayar:</b></label>
-                                                                        <input type="file" name="sanggup_bayar"
-                                                                            class="form-control" required accept=".pdf">
-                                                                        <span class="text-muted">*Ukuran file maks:
-                                                                            2MB</span>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for=""><b>Jadwal Pelaksanaan:</b></label>
-                                                                        <input type="file" name="jadwal_pelaksanaan"
-                                                                            class="form-control" required accept=".pdf">
-                                                                        <span class="text-muted">*Ukuran file maks:
-                                                                            2MB</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Tutup</button>
-                                                                    <button type="submit"
-                                                                        class="btn btn-info text-white"><i
-                                                                            class="bi bi-plus"></i> Unggah
-                                                                        Berkas</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-
-                                                <div class="modal fade" id="status_{{ $r->permohonan_id }}"
-                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog modal-xl">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Status
-                                                                    Permohonan</h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                @php
-                                                                    $detail = PermohonanDetail::getDetailById($r->permohonan_id);
-                                                                @endphp
-                                                                @if ($detail == true)
-                                                                    @php
-                                                                        $detailGet = PermohonanDetail::getDetail($r->permohonan_id);
-                                                                    @endphp
-                                                                    <div class="px-auto p-3">
-                                                                        <div class="row mb-3">
-                                                                            <div
-                                                                                class="col-lg-6 col-sm-12 text-center mx-auto mt-1 mb-4">
-                                                                                Permohonan anda: <br>
-                                                                                @if ($detailGet->permohonan == 'Kembalikan Berkas')
-                                                                                    <span
-                                                                                        class="badge bg-danger">{{ $detailGet->permohonan }}</span>
-                                                                                @else
-                                                                                    <span
-                                                                                        class="badge bg-success">{{ $detailGet->permohonan }}</span>
-                                                                                @endif
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-lg-6 col-sm-12">
-                                                                                <ol class="list-group">
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">Nota
-                                                                                                Dinas
-                                                                                            </div>
-                                                                                            
-                                                                                        <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                            {{ $detailGet->nota_dinas_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->nota_dinas != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->nota_dinas }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->permohonan != null ? 'Proses: 1 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">
-                                                                                                Disposisi
-                                                                                            </div>
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->disposisi_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->disposisi != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->disposisi }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->nota_dinas != null ? 'Proses: 1 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                    <div class="text-center my-4">
-                                                                                        <b>Rapat
-                                                                                            Persiapan Survey</b>
-                                                                                    </div>
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">
-                                                                                                Undangan
-                                                                                            </div>
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->undangan_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->undangan != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->undangan }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->disposisi != null ? 'Proses: 2 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">Berita
-                                                                                                Acara
-                                                                                            </div>
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->ba_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->ba != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->ba }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->undangan != null ? 'Proses: 2 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                    <div class="text-center my-4">
-                                                                                        <b>Hasil Survey</b>
-                                                                                    </div>
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">Berita
-                                                                                                Acara Survey
-                                                                                            </div>
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->ba_survey_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->ba_survey != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->ba_survey }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->ba != null ? 'Proses: 3 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">RAB
-                                                                                            </div>
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->kab_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->kab != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->kab }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->ba_survey != null ? 'Proses: 1 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                </ol>
-
-                                                                            </div>
-                                                                            <div class="col-lg-6 col-sm-12">
-
-                                                                                <ol class="list-group">
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">Persetujuan
-                                                                                                Prinsip
-                                                                                            </div>
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->izin_prinsip_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->izin_prinsip != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->izin_prinsip }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->kab != null ? 'Proses: 1 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">Verifikasi Berkas:</div>
-                                                                                            @if ($detailGet->lengkapi_berkas != null && $detailGet->lengkapi_berkas == 'Tidak Sesuai BA')
-                                                                                                {{ $detailGet->lengkapi_berkas }},
-                                                                                                Silahkan upload kembali
-                                                                                                Gambar
-                                                                                                Lokasi, Konstruksi & Jadwal
-                                                                                                Pelaksanaan
-                                                                                            @elseif($detailGet->lengkapi_berkas != null)
-                                                                                                {{ $detailGet->lengkapi_berkas }}
-                                                                                            @endif
-                                                                                            <br>   
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->lengkapi_berkas_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->lengkapi_berkas != null)
-                                                                                            <span
-                                                                                                class="badge bg-success rounded-pill">
-                                                                                                <i class="bi bi-check"></i>
-                                                                                            </span>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->izin_prinsip != null ? 'Proses: 1 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">
-                                                                                                Rekomendasi
-                                                                                                Teknis</div>
-                                                                                                
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->rekom_teknis_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->rekom_teknis != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->rekom_teknis }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->lengkapi_berkas != null ? 'Proses: 1 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">Surat
-                                                                                                Izin
-                                                                                            </div>
-                                                                                            
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->surat_ijin_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->surat_ijin != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->surat_ijin }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->rekom_teknis != null ? 'Proses: 1 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">Surat
-                                                                                                Mulai
-                                                                                                Kerja</div>
-                                                                                                
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->surat_mulai_kerja_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->surat_mulai_kerja != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->surat_mulai_kerja }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->surat_ijin != null ? 'Proses: 1 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-
-                                                                                    <div class="text-center my-3">
-                                                                                        <b>Surat Permohonan</b>
-                                                                                    </div>
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">KPKNL
-                                                                                            </div>
-                                                                                            
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->kpknl_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->kpknl != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->kpknl }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->surat_mulai_kerja != null ? 'Proses: 1 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                    <li
-                                                                                        class="list-group-item d-flex justify-content-between align-items-start">
-                                                                                        <div class="ms-2 me-auto">
-                                                                                            <div class="fw-bold">Dirjen
-                                                                                                BM
-                                                                                            </div>
-                                                                                            
-                                                                                            <i class="bi bi-calendar-week" style="font-size: 13px"> Tanggal Upload:
-                                                                                                {{ $detailGet->dirjen_bm_date }}</i>
-                                                                                        </div>
-                                                                                        @if ($detailGet->dirjen_bm != null)
-                                                                                            <a
-                                                                                                href="{{ $detailGet->dirjen_bm }}">
-                                                                                                <span
-                                                                                                    class="badge bg-success rounded-pill">
-                                                                                                    Download <i
-                                                                                                        class="bi bi-cloud-arrow-down-fill"></i>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                        @else
-                                                                                            <span
-                                                                                                class="badge bg-danger rounded-pill">
-                                                                                                <i class="bi bi-clock"></i>
-                                                                                                {{ $detailGet->kpknl != null ? 'Proses: 1 hari' : '' }}
-                                                                                            </span>
-                                                                                        @endif
-                                                                                    </li>
-                                                                                </ol>
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-                                                                @else
-                                                                    <div class="alert alert-danger text-center">
-                                                                        <span style="font-size: 30px"><i
-                                                                                class="bi bi-clock"></i></span>
-                                                                        <h5><b>Dalam Proses</b></h5>
-                                                                        <span>Mohon tunggu, permohonan sementara diproses
-                                                                            oleh
-                                                                            admin, jika proses tidak direspon dalam waktu
-                                                                            <b>2 hari</b>
-                                                                            kerja silahkan hubungi admin</span>
-                                                                    </div>
-                                                                @endif
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-
-                                        </tbody>
-                                    </table>
                                 </div>
                             @else
-                                <div class="alert alert-warning text-center">
-                                    <h2><i class="bi bi-exclamation-triangle-fill"></i></h2>
-                                    <h5>Belum ada pengajuan yang dilakukan</h5>
+                                <div class="card">
+                                    <div class="card-body p-2">
+                                        <span class="card-text">
+                                            Persyaratan tambahan <br> <b>belum diupload</b>
+                                        </span>
+                                    </div>
                                 </div>
                             @endif
+                            @endif
+                            </td>
+                            <td class="align-middle text-sm text-center">
+                                <button class="btn btn-info text-white w-100" class="btn btn-primary"
+                                    data-bs-toggle="modal" data-bs-target="#status_{{ $r->permohonan_id }}"><i
+                                        class="bi bi-search"></i>
+                                    Cek
+                                    Status</button>
+                                @if (PermohonanDetail::getDetailById($r->permohonan_id) == true)
+                                    @if (PermohonanDetail::getDetail($r->permohonan_id)->lengkapi_berkas != null)
+                                        @php
+                                            $detail = PermohonanDetail::getDetail($r->permohonan_id);
+                                        @endphp
+                                        @if ($detail->gambar_lokasi == null && $detail->gambar_konstruksi == null && $detail->jadwal_pelaksanaan == null && $detail->sanggup_bayar == null)
+                                            <br>
+                                            <button class="btn btn-danger text-white mt-3 w-100" data-bs-toggle="modal"
+                                                data-bs-target="#berkas_{{ $r->permohonan_id }}"><i
+                                                    class="bi bi-cloud-upload"></i>
+                                                Melengkapi Persyaratan</button>
+                                        @else
+                                            <br>
+                                            <span class="btn btn-success text-white mt-3 w-100"><i
+                                                    class="bi bi-check"></i>
+                                                Persyaratan Telah dikirim</span>
+                                        @endif
+                                    @endif
+                                    @if (PermohonanDetail::getDetail($r->permohonan_id)->surat_ijin != null)
+                                        @if (PermohonanDetail::getDetail($r->permohonan_id)->surat_mulai_kerja == null)
+                                            <br>
+                                            <button class="btn btn-warning text-white mt-3 w-100" data-bs-toggle="modal"
+                                                data-bs-target="#surat_{{ $r->permohonan_id }}"><i
+                                                    class="bi bi-cloud-upload"></i>
+                                                <b>Upload</b> <br> Surat Permohonan Mulai
+                                                Bekerja</button>
+                                        @else
+                                            <br>
+                                            <span class="btn btn-success text-white mt-3 w-100"><i
+                                                    class="bi bi-check"></i>
+                                                Surat Permohonan Mulai
+                                                Bekerja Telah dikirim
+                                            </span>
+                                        @endif
+                                    @endif
+                                @endif
+                            </td>
+                            </tr>
+                            <!-- Modal -->
+                            <div class="modal fade" id="surat_{{ $r->permohonan_id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <form action="/uploadSurat/{{ $r->permohonan_id }}" method="post"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Upload
+                                                    Surat
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label for=""><b>Berkas:</b></label>
+                                                <div class="mb-2">
+                                                    <input type="hidden" name="jenis" value="berkas">
+                                                    <input type="file" name="berkas" class="form-control"
+                                                        accept=".pdf">
+                                                    <span class="text-muted">*Ukuran file maks: 2MB
+                                                        (.pdf)
+                                                    </span>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <p class="text-sm font-weight-bold mb-2">No Surat</p>
+                                                    <input type="text" required name="surat_mulai_kerja_no"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Tutup</button>
+                                                <button type="submit" class="btn btn-info text-white"><i
+                                                        class="bi bi-plus"></i> Unggah
+                                                    Berkas</button>
+                                            </div>
+                                        </div>
+                                    </form>
 
-                            <center>{{ $pengajuan->links() }}</center>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="berkas_{{ $r->permohonan_id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <form action="/uploadBerkas/{{ $r->permohonan_id }}" method="post"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Upload
+                                                    Berkas
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for=""><b>Gambar Lokasi:</b></label>
+                                                    <input type="file" name="gambar_lokasi" class="form-control"
+                                                        required accept=".jpg, .png">
+                                                    <span class="text-muted">*Ukuran file maks:
+                                                        2MB</span>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for=""><b>Gambar
+                                                            Konstruksi:</b></label>
+                                                    <input type="file" name="gambar_konstruksi" class="form-control"
+                                                        required accept=".jpg, .png">
+                                                    <span class="text-muted">*Ukuran file maks:
+                                                        2MB</span>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for=""><b>Surat Pernyataan
+                                                            Kesanggupan
+                                                            Membayar:</b></label>
+                                                    <input type="file" name="sanggup_bayar" class="form-control"
+                                                        required accept=".pdf">
+                                                    <span class="text-muted">*Ukuran file maks:
+                                                        2MB</span>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for=""><b>Jadwal Pelaksanaan:</b></label>
+                                                    <input type="file" name="jadwal_pelaksanaan" class="form-control"
+                                                        required accept=".pdf">
+                                                    <span class="text-muted">*Ukuran file maks:
+                                                        2MB</span>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Tutup</button>
+                                                <button type="submit" class="btn btn-info text-white"><i
+                                                        class="bi bi-plus"></i> Unggah
+                                                    Berkas</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="status_{{ $r->permohonan_id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Status
+                                                Permohonan</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @php
+                                                $detail = PermohonanDetail::getDetailById($r->permohonan_id);
+                                            @endphp
+                                            @if ($detail == true)
+                                                @php
+                                                    $detailGet = PermohonanDetail::getDetail($r->permohonan_id);
+                                                @endphp
+                                                <div class="px-auto p-3">
+                                                    <div class="row mb-3">
+                                                        <div class="col-lg-6 col-sm-12 text-center mx-auto mt-1 mb-4">
+                                                            Permohonan anda: <br>
+                                                            @if ($detailGet->permohonan == 'Kembalikan Berkas')
+                                                                <span
+                                                                    class="badge bg-danger">{{ $detailGet->permohonan }}</span>
+
+                                                                <div class="alert alert-danger mt-3">
+                                                                    <div class="mb-3">
+                                                                        <h6><i class="bi bi-exclamation-circle"></i>
+                                                                            <b>Pesan
+                                                                                admin:</b>
+                                                                        </h6>
+                                                                        {{ $detailGet->komentar }}
+                                                                    </div>
+                                                                    <div class="float-end" style="margin-top:-15px"><i
+                                                                            class="bi bi-calendar"></i>
+                                                                        {{ $detailGet->komentar_date }}</div>
+                                                                </div>
+                                                            @else
+                                                                <span
+                                                                    class="badge bg-success">{{ $detailGet->permohonan }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-sm-12">
+                                                            <ol class="list-group">
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">Nota
+                                                                            Dinas
+                                                                        </div>
+
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->nota_dinas_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->nota_dinas != null)
+                                                                        <a href="{{ $detailGet->nota_dinas }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->permohonan != null ? 'Proses: 1 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">
+                                                                            Disposisi
+                                                                        </div>
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->disposisi_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->disposisi != null)
+                                                                        <a href="{{ $detailGet->disposisi }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->nota_dinas != null ? 'Proses: 1 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                                <div class="text-center my-4">
+                                                                    <b>Rapat
+                                                                        Persiapan Survey</b>
+                                                                </div>
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">
+                                                                            Undangan
+                                                                        </div>
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->undangan_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->undangan != null)
+                                                                        <a href="{{ $detailGet->undangan }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->disposisi != null ? 'Proses: 2 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">Berita
+                                                                            Acara
+                                                                        </div>
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->ba_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->ba != null)
+                                                                        <a href="{{ $detailGet->ba }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->undangan != null ? 'Proses: 2 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                                <div class="text-center my-4">
+                                                                    <b>Hasil Survey</b>
+                                                                </div>
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">Berita
+                                                                            Acara Survey
+                                                                        </div>
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->ba_survey_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->ba_survey != null)
+                                                                        <a href="{{ $detailGet->ba_survey }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->ba != null ? 'Proses: 3 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">RAB
+                                                                        </div>
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->kab_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->kab != null)
+                                                                        <a href="{{ $detailGet->kab }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->ba_survey != null ? 'Proses: 1 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                            </ol>
+
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-12">
+
+                                                            <ol class="list-group">
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">Persetujuan
+                                                                            Prinsip
+                                                                        </div>
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->izin_prinsip_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->izin_prinsip != null)
+                                                                        <a href="{{ $detailGet->izin_prinsip }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->kab != null ? 'Proses: 1 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">Verifikasi Berkas:</div>
+                                                                        @if ($detailGet->lengkapi_berkas != null && $detailGet->lengkapi_berkas == 'Tidak Sesuai BA')
+                                                                            {{ $detailGet->lengkapi_berkas }},
+                                                                            Silahkan upload kembali
+                                                                            Gambar
+                                                                            Lokasi, Konstruksi & Jadwal
+                                                                            Pelaksanaan
+                                                                        @elseif($detailGet->lengkapi_berkas != null)
+                                                                            {{ $detailGet->lengkapi_berkas }}
+                                                                        @endif
+                                                                        <br>
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->lengkapi_berkas_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->lengkapi_berkas != null)
+                                                                        <span class="badge bg-success rounded-pill">
+                                                                            <i class="bi bi-check"></i>
+                                                                        </span>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->izin_prinsip != null ? 'Proses: 1 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">
+                                                                            Rekomendasi
+                                                                            Teknis</div>
+
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->rekom_teknis_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->rekom_teknis != null)
+                                                                        <a href="{{ $detailGet->rekom_teknis }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->lengkapi_berkas != null ? 'Proses: 1 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">Surat
+                                                                            Izin
+                                                                        </div>
+
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->surat_ijin_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->surat_ijin != null)
+                                                                        <a href="{{ $detailGet->surat_ijin }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->rekom_teknis != null ? 'Proses: 1 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">Surat
+                                                                            Mulai
+                                                                            Kerja</div>
+
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->surat_mulai_kerja_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->surat_mulai_kerja != null)
+                                                                        <a href="{{ $detailGet->surat_mulai_kerja }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->surat_ijin != null ? 'Proses: 1 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+
+                                                                <div class="text-center my-3">
+                                                                    <b>Surat Permohonan</b>
+                                                                </div>
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">KPKNL
+                                                                        </div>
+
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->kpknl_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->kpknl != null)
+                                                                        <a href="{{ $detailGet->kpknl }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->surat_mulai_kerja != null ? 'Proses: 1 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                                <li
+                                                                    class="list-group-item d-flex justify-content-between align-items-start">
+                                                                    <div class="ms-2 me-auto">
+                                                                        <div class="fw-bold">Dirjen
+                                                                            BM
+                                                                        </div>
+
+                                                                        <i class="bi bi-calendar-week"
+                                                                            style="font-size: 13px"> Tanggal Upload:
+                                                                            {{ $detailGet->dirjen_bm_date }}</i>
+                                                                    </div>
+                                                                    @if ($detailGet->dirjen_bm != null)
+                                                                        <a href="{{ $detailGet->dirjen_bm }}">
+                                                                            <span class="badge bg-success rounded-pill">
+                                                                                Download <i
+                                                                                    class="bi bi-cloud-arrow-down-fill"></i>
+                                                                            </span>
+                                                                        </a>
+                                                                    @else
+                                                                        <span class="badge bg-danger rounded-pill">
+                                                                            <i class="bi bi-clock"></i>
+                                                                            {{ $detailGet->kpknl != null ? 'Proses: 1 hari' : '' }}
+                                                                        </span>
+                                                                    @endif
+                                                                </li>
+                                                            </ol>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <div class="alert alert-danger text-center">
+                                                    <span style="font-size: 30px"><i class="bi bi-clock"></i></span>
+                                                    <h5><b>Dalam Proses</b></h5>
+                                                    <span>Mohon tunggu, permohonan sementara diproses
+                                                        oleh
+                                                        admin, jika proses tidak direspon dalam waktu
+                                                        <b>2 hari</b>
+                                                        kerja silahkan hubungi admin</span>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+
+                            </tbody>
+                            </table>
                         </div>
+                    @else
+                        <div class="alert alert-warning text-center">
+                            <h2><i class="bi bi-exclamation-triangle-fill"></i></h2>
+                            <h5>Belum ada pengajuan yang dilakukan</h5>
+                        </div>
+                        @endif
+
+                        <center>{{ $pengajuan->links() }}</center>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection('konten')
